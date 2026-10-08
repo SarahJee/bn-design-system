@@ -1,0 +1,23 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Project status
+status: experimental
+description: 'Status icon and label for project tables. Figma: DT_Project Status and M_Project Status.'
+props:
+  type: object
+  required:
+    - status
+  properties:
+    status:
+      type: string
+      title: Status
+      description: 'in-progress is the Figma variant Status=Construction.'
+      enum: [completed, on-hold, cancelled, proposed, pending, approved, in-progress]
+    label:
+      type: string
+      title: Label
+      description: 'Defaults to the status name.'
+    size:
+      type: string
+      title: Size
+      description: 'default = DT (8px padding), mobile = M (4px padding).'
+      enum: [default, mobile]

@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Radio
+status: experimental
+description: 'Single radio option. Group several with the same name inside a fieldset. Figma: DT_Form/Radio.'
+props:
+  type: object
+  required:
+    - id
+    - name
+    - label
+  properties:
+    id:
+      type: string
+      title: ID
+    name:
+      type: string
+      title: Group name
+    value:
+      type: string
+      title: Value
+    label:
+      type: string
+      title: Label
+    link_text:
+      type: string
+      title: Link text
+    link_url:
+      type: string
+      title: Link URL
+    checked:
+      type: boolean
+      title: Selected

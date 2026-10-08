@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * BN control. Figma: Control (Up/Down).
+ */
+#}
+{% set direction = direction|default('down') %}
+<button{{ attributes.addClass(['bn-control', 'bn-control--' ~ direction, 'bn-focus']) }} type="button" aria-label="{{ label }}"{% if expanded is defined and expanded is not null %} aria-expanded="{{ expanded ? 'true' : 'false' }}"{% endif %}>
+  {% include 'bn_design_system:icon' with { name: 'chevron-' ~ direction, size: 20 } only %}
+</button>

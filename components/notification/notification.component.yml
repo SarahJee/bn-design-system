@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Notification
+status: experimental
+description: 'Success message bar. Figma: DT_Notification (Positive).'
+props:
+  type: object
+  required:
+    - message
+  properties:
+    message:
+      type: string
+      title: Message
+    link_text:
+      type: string
+      title: Link text
+    link_url:
+      type: string
+      title: Link URL

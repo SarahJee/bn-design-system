@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * BN divider. Figma: Divider (Dashed, Stub, Solid, Vertical).
+ */
+#}
+{% set style = style|default('solid') %}
+{% if style == 'vertical' %}
+<span{{ attributes.addClass(['bn-divider', 'bn-divider--vertical']) }} role="separator" aria-orientation="vertical"></span>
+{% else %}
+<hr{{ attributes.addClass(['bn-divider', 'bn-divider--' ~ style]) }}>
+{% endif %}

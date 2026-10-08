@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * BN checkbox. Figma: DT_Form/Checkbox Terms.
+ */
+#}
+<div{{ attributes.addClass('bn-checkbox') }}>
+  <input class="bn-checkbox__input" type="checkbox" id="{{ id }}" name="{{ name|default(id) }}" value="{{ value|default('1') }}"{% if checked %} checked{% endif %}{% if required %} required{% endif %}>
+  <label class="bn-checkbox__label" for="{{ id }}">
+    <span class="bn-checkbox__box" aria-hidden="true">{% include 'bn_design_system:icon' with { name: 'checkmark', size: 16 } only %}</span>
+    <span class="bn-checkbox__text">{{ label }}</span>
+  </label>
+  {% if link_text and link_url %}<a class="bn-checkbox__link" href="{{ link_url }}">{{ link_text }}</a>{% endif %}
+  {% if required %}<span class="bn-checkbox__required" aria-hidden="true">*</span>{% endif %}
+</div>

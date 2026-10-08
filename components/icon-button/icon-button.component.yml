@@ -1,0 +1,27 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Icon button
+status: experimental
+description: 'Round bookmark and share buttons. Figma: DT_Bookmark, DT_Share, M_Bookmark + Share.'
+props:
+  type: object
+  required:
+    - icon
+    - label
+  properties:
+    icon:
+      type: string
+      title: Icon
+      enum: [bookmark, share]
+    label:
+      type: string
+      title: Accessible label
+      description: 'Read by screen readers, for example "Bookmark this article".'
+    active:
+      type: boolean
+      title: Active
+      description: 'Bookmark saved. Sets aria-pressed (bookmark only).'
+    size:
+      type: string
+      title: Size
+      description: 'default = 32px (DT), mobile = 48px (M).'
+      enum: [default, mobile]

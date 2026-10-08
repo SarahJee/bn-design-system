@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * BN unsubscribe button. Figma: DT_Unsubscribe.
+ */
+#}
+{% set label = label|default('Unsubscribe from all emails') %}
+{% if url %}
+<a{{ attributes.addClass(['bn-unsubscribe', 'bn-focus']) }} href="{{ url }}">{{ label }}</a>
+{% else %}
+<button{{ attributes.addClass(['bn-unsubscribe', 'bn-focus']) }} type="{{ button_type|default('button') }}">{{ label }}</button>
+{% endif %}

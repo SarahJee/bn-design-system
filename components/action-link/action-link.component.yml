@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Action link
+status: experimental
+description: 'Underlined text actions with an icon. Figma: DT_Button Action and M_Button Action.'
+props:
+  type: object
+  required:
+    - label
+    - action
+  properties:
+    label:
+      type: string
+      title: Label
+    action:
+      type: string
+      title: Action
+      description: 'Figma Type: Revert, Show more, Delete, Go back, Add to Cal, View All.'
+      enum: [revert, show-more, delete, go-back, add-to-cal, view-all]
+    url:
+      type: string
+      title: URL
+      description: 'Renders a link instead of a button.'

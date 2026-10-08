@@ -1,0 +1,57 @@
+/* BN radio. Figma: DT_Form/Radio. 33 x 32 circle, 2px border; selected shows a 16px dot. */
+.bn-radio {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 4px;
+  font-family: var(--font-barlow);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--bn-fonts-links);
+}
+.bn-radio__input {
+  position: absolute;
+  width: 33px;
+  height: 32px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.bn-radio__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.bn-radio__circle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 33px;
+  height: 32px;
+  border-radius: 100px;
+  background: var(--bn-brand-white);
+  box-shadow: inset 0 0 0 2px var(--bn-fonts-body);
+}
+.bn-radio__input:checked + .bn-radio__label .bn-radio__circle {
+  box-shadow: inset 0 0 0 2px var(--bn-brand-primary);
+}
+.bn-radio__input:checked + .bn-radio__label .bn-radio__circle::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bn-brand-primary);
+}
+.bn-radio__input:focus-visible + .bn-radio__label .bn-radio__circle {
+  outline: var(--bn-focus-ring-width) solid var(--bn-focus-ring-color);
+  outline-offset: var(--bn-focus-ring-offset);
+}
+.bn-radio__link {
+  color: var(--bn-fonts-links);
+  font-weight: 600;
+  text-decoration: underline;
+}

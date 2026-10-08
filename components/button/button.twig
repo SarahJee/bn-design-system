@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * BN button. Figma: DT_Button / M_Button.
+ */
+#}
+{% set variant = variant|default('primary') %}
+{% set default_icons = { download: 'download', icon: 'reset', previous: 'chevron-left', next: 'chevron-right' } %}
+{% set icon_name = icon|default(default_icons[variant]|default('')) %}
+{% set icon_first = variant == 'previous' %}
+{% set classes = ['bn-button', 'bn-button--' ~ variant, 'bn-focus'] %}
+{% if url %}
+<a{{ attributes.addClass(classes) }} href="{{ url }}">
+{% else %}
+<button{{ attributes.addClass(classes) }} type="{{ button_type|default('button') }}">
+{% endif %}
+  {% if icon_name and icon_first %}{% include 'bn_design_system:icon' with { name: icon_name, size: 16 } only %}{% endif %}
+  <span class="bn-button__label">{{ label }}</span>
+  {% if icon_name and not icon_first %}{% include 'bn_design_system:icon' with { name: icon_name, size: 16 } only %}{% endif %}
+{% if url %}
+</a>
+{% else %}
+</button>
+{% endif %}

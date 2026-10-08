@@ -1,0 +1,34 @@
+/* BN divider. Figma: Divider. */
+.bn-divider {
+  display: block;
+  margin: 0;
+  border: 0;
+}
+/* Solid: 1px bn-bg-grey. */
+.bn-divider--solid {
+  width: 100%;
+  height: 1px;
+  background: var(--bn-bg-grey);
+}
+/* Dashed: 1px bn-fonts-body, 2px dash / 2px gap, at 20% opacity. */
+.bn-divider--dashed {
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--bn-fonts-body) 0 2px, transparent 2px 4px);
+  opacity: 0.2;
+}
+/* Stub: 28 x 2 bn-brand-bright accent under headings. */
+.bn-divider--stub {
+  width: 28px;
+  height: 2px;
+  background: var(--bn-brand-bright);
+}
+/* Vertical: 1 x 32 bn-bg-grey, for separating inline items. */
+.bn-divider--vertical {
+  display: inline-block;
+  width: 1px;
+  height: 32px;
+  margin: 0 1px;
+  background: var(--bn-bg-grey);
+  vertical-align: middle;
+}

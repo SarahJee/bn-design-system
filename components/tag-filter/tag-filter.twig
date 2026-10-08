@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * BN tag filter. Figma: DT_Tag Filter / M_Tag Filter.
+ */
+#}
+<button{{ attributes.addClass(['bn-tag-filter', 'bn-focus']) }} type="button" aria-pressed="{{ active ? 'true' : 'false' }}">
+  <span class="bn-tag-filter__label">{{ label }}</span>
+  {% include 'bn_design_system:icon' with { name: active ? 'check' : 'cross', size: 12 } only %}
+</button>

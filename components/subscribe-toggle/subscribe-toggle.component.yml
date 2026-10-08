@@ -1,0 +1,21 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Subscribe toggle
+status: experimental
+description: 'On / off switch for a newsletter or alert subscription. Figma: DT_SliderToggle.'
+props:
+  type: object
+  properties:
+    subscribed:
+      type: boolean
+      title: Subscribed
+      description: 'Sets aria-checked. Your JavaScript toggles it.'
+    label_on:
+      type: string
+      title: Label when on
+    label_off:
+      type: string
+      title: Label when off
+    name:
+      type: string
+      title: Subscription name
+      description: 'What the switch controls, read by screen readers (for example "Morning Edition").'

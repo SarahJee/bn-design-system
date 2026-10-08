@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Tag filter
+status: experimental
+description: 'Selectable filter pill. Figma: DT_Tag Filter and M_Tag Filter (identical).'
+props:
+  type: object
+  required:
+    - label
+  properties:
+    label:
+      type: string
+      title: Label
+    active:
+      type: boolean
+      title: Active
+      description: 'Sets aria-pressed. Your JavaScript toggles it.'

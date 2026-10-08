@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Icon
+status: stable
+description: 'BN icon set, outlined from the BN Component Library. Single-colour icons inherit the text colour (currentColor).'
+props:
+  type: object
+  required:
+    - name
+  properties:
+    name:
+      type: string
+      title: Name
+      enum: ["add-to-cal", "arrow-right", "bookmark", "check", "check-circle", "checkmark", "chevron-down", "chevron-left", "chevron-right", "chevron-up", "close", "cross", "download", "minus", "plus", "reset", "search", "share", "status-approved", "status-cancelled", "status-completed", "status-in-progress", "status-on-hold", "status-pending", "status-proposed", "trash"]
+    size:
+      type: number
+      title: Size
+      description: 'Icon height in px. Defaults to 16.'

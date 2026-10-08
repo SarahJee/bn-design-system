@@ -1,0 +1,16 @@
+/* BN project status. Figma: DT_Project Status (8px padding) / M_Project Status (4px). Icons keep their own colours. */
+.bn-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  color: var(--bn-fonts-links);
+  font-family: var(--font-barlow);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.44px;
+  white-space: nowrap;
+}
+.bn-status--mobile {
+  padding: 4px;
+}

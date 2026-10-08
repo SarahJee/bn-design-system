@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button
+status: experimental
+description: 'Solid buttons. Figma: DT_Button and M_Button.'
+props:
+  type: object
+  required:
+    - label
+  properties:
+    label:
+      type: string
+      title: Label
+    variant:
+      type: string
+      title: Variant
+      description: 'primary = Type=Default. previous and next come from M_Button.'
+      enum: [primary, delete, download, icon, tertiary, previous, next]
+    icon:
+      type: string
+      title: Icon
+      description: 'Override the icon. Defaults: download → download, icon → reset, previous → chevron-left, next → chevron-right.'
+    url:
+      type: string
+      title: URL
+      description: 'Renders a link instead of a button.'
+    button_type:
+      type: string
+      title: Button type
+      enum: [button, submit, reset]

@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Follow button
+status: experimental
+description: 'Follow / unfollow toggle. Figma: DT_Follow, M Follow, DT_Table-Follow, M_Table-Follow.'
+props:
+  type: object
+  properties:
+    following:
+      type: boolean
+      title: Following
+      description: 'Sets aria-pressed. Your JavaScript toggles it.'
+    size:
+      type: string
+      title: Size
+      description: 'default = DT_Follow, mobile = M Follow, table = DT_Table-Follow, table-mobile = M_Table-Follow.'
+      enum: [default, mobile, table, table-mobile]
+    label:
+      type: string
+      title: Label
+      description: 'Defaults to Follow, or Unfollow when following.'
+    target:
+      type: string
+      title: Target name
+      description: 'What is being followed, read by screen readers (for example "Rio Tinto").'

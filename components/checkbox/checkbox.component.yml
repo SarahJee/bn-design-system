@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Checkbox
+status: experimental
+description: 'Checkbox with label and optional link, for example terms and conditions. Figma: DT_Form/Checkbox Terms.'
+props:
+  type: object
+  required:
+    - id
+    - label
+  properties:
+    id:
+      type: string
+      title: ID
+    name:
+      type: string
+      title: Name
+    value:
+      type: string
+      title: Value
+    label:
+      type: string
+      title: Label
+    link_text:
+      type: string
+      title: Link text
+      description: 'Optional link shown after the label, for example "Terms & Conditions".'
+    link_url:
+      type: string
+      title: Link URL
+    checked:
+      type: boolean
+      title: Checked
+    required:
+      type: boolean
+      title: Required

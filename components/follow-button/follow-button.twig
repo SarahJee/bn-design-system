@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * BN follow button. Figma: DT_Follow / M Follow / DT_Table-Follow / M_Table-Follow.
+ */
+#}
+{% set size = size|default('default') %}
+{% set label = label|default(following ? 'Unfollow' : 'Follow') %}
+{% set icon_sizes = { 'default': 16, 'mobile': following ? 16 : 20, 'table': 12, 'table-mobile': 12 } %}
+{% set classes = ['bn-follow', 'bn-follow--' ~ size, 'bn-focus'] %}
+<button{{ attributes.addClass(classes) }} type="button" aria-pressed="{{ following ? 'true' : 'false' }}">
+  <span class="bn-follow__icon">{% include 'bn_design_system:icon' with { name: following ? 'minus' : 'plus', size: icon_sizes[size] } only %}</span>
+  <span class="bn-follow__label">{{ label }}{% if target %}<span class="bn-visually-hidden"> {{ target }}</span>{% endif %}</span>
+</button>

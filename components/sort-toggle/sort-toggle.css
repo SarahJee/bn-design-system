@@ -1,0 +1,63 @@
+/* BN sort toggle. Figma: DT_Toggle (Sort) / M_Toggle. 44px, 1px inside border in bn-brand-primary. */
+.bn-sort {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-barlow);
+}
+.bn-sort__label {
+  color: var(--bn-fonts-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.bn-sort__options {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  border-radius: 4px;
+}
+.bn-sort__options::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--bn-brand-primary);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.bn-sort__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 16px;
+  color: var(--bn-fonts-links);
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.bn-sort__option:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.bn-sort__option:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.bn-sort__option:has(input:checked) {
+  background: var(--bn-brand-primary);
+  color: var(--bn-brand-white);
+  font-weight: 700;
+  line-height: 14px;
+}
+/* Mobile (M_Toggle): 320px, equal halves, inactive label in bn-brand-primary. */
+.bn-sort--mobile .bn-sort__options {
+  width: 320px;
+  max-width: 100%;
+}
+.bn-sort--mobile .bn-sort__option {
+  flex: 1 1 0;
+  color: var(--bn-brand-primary);
+}
+.bn-sort--mobile .bn-sort__option:has(input:checked) {
+  color: var(--bn-brand-white);
+}

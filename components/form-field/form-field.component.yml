@@ -1,0 +1,52 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Form field
+status: experimental
+description: 'Label, help text and a text input, text area or select. Figma: DT_Form/Fields, M_Form/Fields, DT_Form/Text Field, DT_Form/Text Area, DT_Form / Option.'
+props:
+  type: object
+  required:
+    - label
+    - id
+  properties:
+    label:
+      type: string
+      title: Label
+    id:
+      type: string
+      title: ID
+    name:
+      type: string
+      title: Name
+      description: 'Defaults to the id.'
+    type:
+      type: string
+      title: Type
+      enum: [text, email, password, tel, url, number, textarea, select]
+    required:
+      type: boolean
+      title: Required
+    help_text:
+      type: string
+      title: Help text
+    placeholder:
+      type: string
+      title: Placeholder
+    value:
+      type: string
+      title: Value
+    options:
+      type: array
+      title: Options
+      description: 'For type select: a list of { value, label }.'
+      items:
+        type: object
+        properties:
+          value:
+            type: string
+          label:
+            type: string
+    size:
+      type: string
+      title: Size
+      description: 'default = DT (17px label), mobile = M (16px label).'
+      enum: [default, mobile]

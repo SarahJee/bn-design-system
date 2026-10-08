@@ -1,0 +1,21 @@
+{
+  "name": "bn-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Business News design tokens and Drupal single directory components, with Storybook.",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "8.6.18",
+    "@storybook/addon-essentials": "8.6.18",
+    "@storybook/blocks": "8.6.18",
+    "@storybook/html": "8.6.18",
+    "@storybook/html-vite": "8.6.18",
+    "storybook": "8.6.18",
+    "vite": "5.4.21",
+    "vite-plugin-twig-drupal": "1.6.2"
+  }
+}

@@ -1,0 +1,52 @@
+/* BN button. Figma: DT_Button / M_Button. 46px tall, padding 10 / bn-space-md / 12. */
+.bn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  height: 46px;
+  padding: 10px var(--bn-space-md) 12px;
+  border: 0;
+  border-radius: var(--bn-radius-sm);
+  background: var(--bn-brand-primary);
+  color: var(--bn-brand-white);
+  font-family: var(--font-barlow);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bn-button--primary:hover {
+  background: var(--bn-brand-primary-hover);
+}
+.bn-button--delete {
+  background: var(--bn-system-red-bg);
+  color: var(--bn-system-red-text);
+}
+.bn-button--download,
+.bn-button--tertiary,
+.bn-button--previous,
+.bn-button--next {
+  background: var(--bn-bg-blue);
+  color: var(--bn-brand-primary);
+}
+.bn-button--icon {
+  background: var(--bn-brand-white);
+  color: var(--bn-brand-primary);
+}
+.bn-button--tertiary .bn-button__label {
+  line-height: 24.82px;
+}
+/* Hover for every non-primary variant: Figma State=Hover. */
+.bn-button--delete:hover,
+.bn-button--download:hover,
+.bn-button--icon:hover,
+.bn-button--tertiary:hover,
+.bn-button--previous:hover,
+.bn-button--next:hover {
+  background: var(--bn-bg-grey);
+  color: var(--bn-fonts-body);
+}

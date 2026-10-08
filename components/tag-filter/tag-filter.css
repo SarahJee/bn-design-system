@@ -1,0 +1,29 @@
+/* BN tag filter. Figma: DT_Tag Filter / M_Tag Filter. 38px pill, 13/16 uppercase, 1px outside stroke. */
+.bn-tag-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-sizing: border-box;
+  min-height: 38px;
+  padding: 8px 14px 8px 16px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--bn-bg-grey);
+  box-shadow: 0 0 0 1px var(--bn-bg-grey);
+  color: var(--bn-fonts-body);
+  font-family: var(--font-barlow);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.bn-tag-filter[aria-pressed='true'] {
+  padding: 8px 16px;
+  background: var(--bn-bg-blue);
+  box-shadow: 0 0 0 1px var(--bn-brand-bright);
+  color: var(--bn-brand-primary);
+  font-weight: 600;
+}

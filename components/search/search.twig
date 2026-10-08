@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * BN search. Figma: DT_Search (Active=No / Yes).
+ */
+#}
+{% set id = id|default('bn-search') %}
+<form{{ attributes.addClass('bn-search') }} role="search" action="{{ action|default('/search') }}" method="get">
+  <label class="bn-visually-hidden" for="{{ id }}">{{ label|default('Search') }}</label>
+  <input class="bn-search__input" type="search" id="{{ id }}" name="{{ name|default('keys') }}" placeholder="{{ placeholder|default('Search news, people, companies, projects...') }}"{% if value %} value="{{ value }}"{% endif %}>
+  <button class="bn-search__button bn-focus" type="submit" aria-label="{{ button_label|default('Search') }}">
+    {% include 'bn_design_system:icon' with { name: 'search', size: 32 } only %}
+  </button>
+</form>
