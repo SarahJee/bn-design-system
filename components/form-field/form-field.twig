@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * BN form field. Figma: DT_Form/Fields and M_Form/Fields, wrapping
+ * DT_Form/Text Field, DT_Form/Text Area or DT_Form / Option.
+ */
+#}
+{% set type = type|default('text') %}
+{% set name = name|default(id) %}
+{% set describedby = help_text ? id ~ '-help' : '' %}
+<div{{ attributes.addClass(['bn-field', 'bn-field--' ~ size|default('default'), 'bn-field--' ~ type]) }}>
+  <div class="bn-field__head">
+    <label class="bn-field__label" for="{{ id }}">{{ label }}{% if required %}<span class="bn-field__required" aria-hidden="true">*</span>{% endif %}</label>
+    {% if help_text %}<p class="bn-field__help" id="{{ describedby }}">{{ help_text }}</p>{% endif %}
+  </div>
+  {% if type == 'textarea' %}
+    <textarea class="bn-field__control" id="{{ id }}" name="{{ name }}"{% if placeholder %} placeholder="{{ placeholder }}"{% endif %}{% if required %} required{% endif %}{% if describedby %} aria-describedby="{{ describedby }}"{% endif %}>{{ value }}</textarea>
+  {% elseif type == 'select' %}
+    <span class="bn-field__select">
+      <select class="bn-field__control" id="{{ id }}" name="{{ name }}"{% if required %} required{% endif %}{% if describedby %} aria-describedby="{{ describedby }}"{% endif %}>
+        {% for option in options|default([]) %}
+          <option value="{{ option.value }}"{% if option.value == value %} selected{% endif %}>{{ option.label }}</option>
+        {% endfor %}
+      </select>
+      {% include 'bn_design_system:icon' with { name: 'chevron-down', size: 16 } only %}
+    </span>
+  {% else %}
+    <input class="bn-field__control" type="{{ type }}" id="{{ id }}" name="{{ name }}"{% if value %} value="{{ value }}"{% endif %}{% if placeholder %} placeholder="{{ placeholder }}"{% endif %}{% if required %} required{% endif %}{% if describedby %} aria-describedby="{{ describedby }}"{% endif %}>
+  {% endif %}
+</div>

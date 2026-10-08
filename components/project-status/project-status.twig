@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * BN project status. Figma: DT_Project Status / M_Project Status.
+ */
+#}
+{% set labels = { 'completed': 'Completed', 'on-hold': 'On hold', 'cancelled': 'Cancelled', 'proposed': 'Proposed', 'pending': 'Pending', 'approved': 'Approved', 'in-progress': 'In progress' } %}
+<span{{ attributes.addClass(['bn-status', 'bn-status--' ~ status, 'bn-status--' ~ size|default('default')]) }}>
+  {% include 'bn_design_system:icon' with { name: 'status-' ~ status, size: 16 } only %}
+  <span class="bn-status__label">{{ label|default(labels[status]) }}</span>
+</span>

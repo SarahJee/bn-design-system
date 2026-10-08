@@ -1,0 +1,61 @@
+/* BN subscribe toggle. Figma: DT_SliderToggle. 192 x 48, 2px inside border. */
+.bn-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 192px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  font-family: var(--font-barlow);
+  font-size: 17px;
+  line-height: 20.5px;
+  color: var(--bn-fonts-headings);
+  text-align: left;
+  cursor: pointer;
+}
+/* Figma draws the stroke inside and on top of the indicator. */
+.bn-toggle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--bn-toggle-line);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.bn-toggle__text {
+  padding: 1px 0;
+  white-space: nowrap;
+}
+.bn-toggle__indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--bn-brand-white);
+}
+.bn-toggle--on {
+  --bn-toggle-line: var(--bn-brand-primary);
+  justify-content: space-evenly;
+  padding-left: 16px;
+  background: var(--bn-bg-blue);
+  font-weight: 500;
+}
+.bn-toggle--on .bn-toggle__indicator {
+  border-radius: 0 4px 4px 0;
+  background: var(--bn-brand-primary);
+}
+.bn-toggle--off {
+  --bn-toggle-line: var(--bn-fonts-body);
+  gap: 17px;
+  padding-right: 16px;
+  background: var(--bn-brand-white);
+  font-weight: 400;
+}
+.bn-toggle--off .bn-toggle__indicator {
+  border-radius: 4px 0 0 4px;
+  background: var(--bn-fonts-body);
+}

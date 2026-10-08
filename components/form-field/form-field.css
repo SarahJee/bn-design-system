@@ -1,0 +1,93 @@
+/* BN form field. Figma: DT_Form/Fields, M_Form/Fields (268px wide). */
+.bn-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: var(--bn-field-width, 268px);
+  max-width: 100%;
+  font-family: var(--font-barlow);
+}
+.bn-field__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bn-field__label {
+  color: var(--bn-fonts-links);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24.82px;
+}
+.bn-field--mobile .bn-field__label {
+  font-size: 16px;
+}
+.bn-field__required {
+  margin-left: 5px;
+  color: var(--bn-system-red-deco);
+  font-size: 17px;
+  font-weight: 700;
+}
+.bn-field__help {
+  margin: 0;
+  color: var(--bn-fonts-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Text field. Figma: DT_Form/Text Field. 48px, 2px inside border in bn-fonts-body. */
+.bn-field__control {
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--bn-brand-white);
+  box-shadow: inset 0 0 0 2px var(--bn-fonts-body);
+  color: var(--bn-fonts-links);
+  font-family: var(--font-barlow);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.bn-field__control::placeholder {
+  color: var(--bn-fonts-body);
+  font-style: italic;
+  opacity: 1;
+}
+/* Figma State=Active/Focus: 3px bn-brand-primary border, Medium text. This is the focus indicator. */
+.bn-field__control:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--bn-brand-primary);
+  font-weight: 500;
+}
+
+/* Text area. Figma: DT_Form/Text Area. 160px, 16px padding. */
+textarea.bn-field__control {
+  height: 160px;
+  padding: 16px;
+  resize: vertical;
+}
+
+/* Select. Figma: DT_Form / Option. 178px, Medium text, chevron in bn-fonts-body. */
+.bn-field__select {
+  position: relative;
+  display: inline-flex;
+  width: 178px;
+  max-width: 100%;
+  color: var(--bn-fonts-body);
+}
+.bn-field__select .bn-field__control {
+  padding-right: 48px;
+  font-weight: 500;
+  appearance: none;
+  cursor: pointer;
+}
+.bn-field__select .bn-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

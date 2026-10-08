@@ -1,0 +1,15 @@
+/* BN control. Figma: Control. 48px circle, bn-bg-blue, 20px chevron in bn-brand-primary. No hover state in Figma. */
+.bn-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: var(--bn-bg-blue);
+  color: var(--bn-brand-primary);
+  cursor: pointer;
+}

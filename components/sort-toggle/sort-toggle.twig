@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * BN sort toggle. Figma: DT_Toggle (Sort) / M_Toggle.
+ */
+#}
+{% set options = options|default([{ value: 'date', label: 'Date' }, { value: 'relevance', label: 'Relevance' }]) %}
+{% set value = value|default(options[0].value) %}
+<div{{ attributes.addClass(['bn-sort', 'bn-sort--' ~ size|default('default')]) }}>
+  <span class="bn-sort__label" id="{{ name }}-label">{{ label|default('Sort by:') }}</span>
+  <div class="bn-sort__options bn-focus-within" role="radiogroup" aria-labelledby="{{ name }}-label">
+    {% for option in options %}
+      <label class="bn-sort__option">
+        <input class="bn-visually-hidden" type="radio" name="{{ name }}" value="{{ option.value }}"{% if option.value == value %} checked{% endif %}>
+        <span>{{ option.label }}</span>
+      </label>
+    {% endfor %}
+  </div>
+</div>

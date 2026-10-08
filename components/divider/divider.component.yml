@@ -1,0 +1,11 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Divider
+status: experimental
+description: 'Horizontal and vertical rules. Figma: Divider.'
+props:
+  type: object
+  properties:
+    style:
+      type: string
+      title: Style
+      enum: [solid, dashed, stub, vertical]

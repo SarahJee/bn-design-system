@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * BN action link. Figma: DT_Button Action / M_Button Action.
+ */
+#}
+{% set icons = { 'revert': 'reset', 'show-more': 'chevron-down', 'delete': 'trash', 'go-back': 'chevron-left', 'add-to-cal': 'add-to-cal', 'view-all': 'arrow-right' } %}
+{% set icon_first = action == 'go-back' or action == 'add-to-cal' %}
+{% set classes = ['bn-action', 'bn-action--' ~ action, 'bn-focus'] %}
+{% if url %}
+<a{{ attributes.addClass(classes) }} href="{{ url }}">
+{% else %}
+<button{{ attributes.addClass(classes) }} type="button">
+{% endif %}
+  {% if action == 'add-to-cal' %}
+    <span class="bn-action__circle">{% include 'bn_design_system:icon' with { name: 'add-to-cal', size: 14.222222 } only %}</span>
+  {% elseif icon_first %}
+    {% include 'bn_design_system:icon' with { name: icons[action], size: 16 } only %}
+  {% endif %}
+  <span class="bn-action__label">{{ label }}</span>
+  {% if not icon_first %}{% include 'bn_design_system:icon' with { name: icons[action], size: 16 } only %}{% endif %}
+{% if url %}
+</a>
+{% else %}
+</button>
+{% endif %}

@@ -1,0 +1,21 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Control
+status: experimental
+description: 'Round up / down control, for example to expand or scroll. Figma: Control.'
+props:
+  type: object
+  required:
+    - label
+  properties:
+    direction:
+      type: string
+      title: Direction
+      enum: [down, up]
+    label:
+      type: string
+      title: Accessible label
+      description: 'Read by screen readers, for example "Show more".'
+    expanded:
+      type: boolean
+      title: Expanded
+      description: 'Optional. Sets aria-expanded when the control opens or closes a region.'

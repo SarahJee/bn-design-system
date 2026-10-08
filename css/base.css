@@ -1,0 +1,43 @@
+/**
+ * BN base styles shared by every component.
+ * Load after tokens/tokens.css.
+ */
+
+/* Icons: single-colour icons use currentColor. Size sets the icon height. */
+.bn-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.bn-icon svg {
+  display: block;
+  width: auto;
+  height: var(--bn-icon-size, 16px);
+  overflow: visible;
+}
+
+/* Hidden visually, still read by screen readers. */
+.bn-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+/*
+ * Keyboard focus. Not defined in Figma: added so every control has a visible
+ * focus state. 2px solid bn-brand-primary, 2px clear of the control.
+ */
+:root {
+  --bn-focus-ring-width: 2px;
+  --bn-focus-ring-offset: 2px;
+  --bn-focus-ring-color: var(--bn-brand-primary);
+}
+.bn-focus:focus-visible,
+.bn-focus-within:has(:focus-visible) {
+  outline: var(--bn-focus-ring-width) solid var(--bn-focus-ring-color);
+  outline-offset: var(--bn-focus-ring-offset);
+}

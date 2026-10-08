@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * BN notification. Figma: DT_Notification (Positive).
+ */
+#}
+<div{{ attributes.addClass(['bn-notification', 'bn-notification--positive']) }} role="status">
+  {% include 'bn_design_system:icon' with { name: 'check-circle', size: 18 } only %}
+  <p class="bn-notification__text">{{ message }}{% if link_text and link_url %} <a class="bn-notification__link" href="{{ link_url }}">{{ link_text }}</a>{% endif %}</p>
+</div>

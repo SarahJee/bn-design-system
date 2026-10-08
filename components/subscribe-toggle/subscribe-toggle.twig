@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * BN subscribe toggle. Figma: DT_SliderToggle (Subscribed=Yes / No).
+ */
+#}
+{% set state = subscribed ? 'on' : 'off' %}
+<button{{ attributes.addClass(['bn-toggle', 'bn-toggle--' ~ state, 'bn-focus']) }} type="button" role="switch" aria-checked="{{ subscribed ? 'true' : 'false' }}"{% if name %} aria-label="{{ name }}"{% endif %}>
+  {% if not subscribed %}<span class="bn-toggle__indicator">{% include 'bn_design_system:icon' with { name: 'cross', size: 24 } only %}</span>{% endif %}
+  <span class="bn-toggle__text">{{ subscribed ? label_on|default('Subscribed') : label_off|default('Not Subscribed') }}</span>
+  {% if subscribed %}<span class="bn-toggle__indicator">{% include 'bn_design_system:icon' with { name: 'check', size: 24 } only %}</span>{% endif %}
+</button>

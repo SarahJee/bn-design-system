@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * BN icon button. Figma: DT_Bookmark / DT_Share / M_Bookmark + Share.
+ */
+#}
+{% set size = size|default('default') %}
+{% set icon_sizes = { bookmark: { 'default': 11, 'mobile': 16.5 }, share: { 'default': 10.546875, 'mobile': 15.8203125 } } %}
+{% set classes = ['bn-icon-button', 'bn-icon-button--' ~ size, 'bn-icon-button--' ~ icon, 'bn-focus'] %}
+<button{{ attributes.addClass(classes) }} type="button" aria-label="{{ label }}"{% if icon == 'bookmark' %} aria-pressed="{{ active ? 'true' : 'false' }}"{% endif %}>
+  {% include 'bn_design_system:icon' with { name: icon, size: icon_sizes[icon][size] } only %}
+</button>
