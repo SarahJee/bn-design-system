@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Tag
 status: experimental
-description: 'Small uppercase label on cards and articles. Figma: DT_Tag and M_Tag (identical).'
+description: 'Small uppercase label on cards and articles. Figma: Atoms/Tag (was DT_Tag and M_Tag, which were identical).'
 props:
   type: object
   required:

@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Checkbox
 status: experimental
-description: 'Checkbox with label and optional link, for example terms and conditions. Figma: DT_Form/Checkbox Terms.'
+description: 'Checkbox with label and optional link, for example terms and conditions. Figma: Atoms/Checkbox/Desktop (was DT_Form/Checkbox Terms).'
 props:
   type: object
   required:

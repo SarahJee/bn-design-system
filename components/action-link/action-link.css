@@ -9,7 +9,7 @@
   height: 44px;
   padding: 4px 14px 6px;
   border: 0;
-  border-radius: 100px;
+  border-radius: var(--bn-radius-full);
   background: none;
   color: var(--bn-brand-primary);
   font-family: var(--font-barlow);
@@ -63,7 +63,7 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 100px;
+  border-radius: var(--bn-radius-full);
   background: var(--bn-bg-blue);
   color: var(--bn-brand-primary);
 }

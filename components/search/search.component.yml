@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Search
 status: experimental
-description: 'Site search box with a submit button. Figma: DT_Search.'
+description: 'Site search box with a submit button. Figma: Molecules/Search/Desktop (was DT_Search).'
 props:
   type: object
   properties:
