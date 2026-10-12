@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Unsubscribe button
 status: experimental
-description: 'Destructive "unsubscribe from all" action. Figma: DT_Unsubscribe.'
+description: 'Destructive "unsubscribe from all" action. Figma: Atoms/Unsubscribe Button/Desktop (was DT_Unsubscribe).'
 props:
   type: object
   properties:

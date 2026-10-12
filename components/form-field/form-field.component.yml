@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Form field
 status: experimental
-description: 'Label, help text and a text input, text area or select. Figma: DT_Form/Fields, M_Form/Fields, DT_Form/Text Field, DT_Form/Text Area, DT_Form / Option.'
+description: 'Label, help text and a text input, text area or select. Figma: Molecules/Form Field, Atoms/Text Input/Desktop, Atoms/Text Area/Desktop and Atoms/Select/Desktop (was DT_Form/Fields, M_Form/Fields, DT_Form/Text Field, DT_Form/Text Area, DT_Form / Option).'
 props:
   type: object
   required:

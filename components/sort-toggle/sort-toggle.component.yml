@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Sort toggle
 status: experimental
-description: 'Two-option segmented control for sorting results. Figma: DT_Toggle (Sort) and M_Toggle.'
+description: 'Two-option segmented control for sorting results. Figma: Molecules/Sort Toggle (was DT_Toggle (Sort) and M_Toggle).'
 props:
   type: object
   required:

@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Action link
 status: experimental
-description: 'Underlined text actions with an icon. Figma: DT_Button Action and M_Button Action.'
+description: 'Underlined text actions with an icon. Figma: Atoms/Action Link (was DT_Button Action and M_Button Action).'
 props:
   type: object
   required:

@@ -25,7 +25,7 @@
   box-sizing: border-box;
   width: 42px;
   height: 42px;
-  border-radius: 4px 0 0 4px;
+  border-radius: var(--bn-radius-sm) 0 0 var(--bn-radius-sm);
   background: var(--bn-brand-dark);
   color: var(--bn-brand-white);
 }

@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Subscribe toggle
 status: experimental
-description: 'On / off switch for a newsletter or alert subscription. Figma: DT_SliderToggle.'
+description: 'On / off switch for a newsletter or alert subscription. Figma: Molecules/Subscribe Toggle/Desktop (was DT_SliderToggle).'
 props:
   type: object
   properties:

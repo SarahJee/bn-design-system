@@ -2,7 +2,9 @@
 
 Business News design tokens and components, built as Drupal **single directory components** (SDC) with a Storybook to browse them. Everything here comes from the **BN Component Library** in Figma: colours, type, spacing, radii, icons and the measurements of each component.
 
-This is the first release: the core set of 18 components. The rest of the Figma library (headers, cards, accordions, footer and so on) will follow once this set has been reviewed.
+This release has the core set of 18 components, built for Drupal. The other 34 components in the Figma library (headers, cards, accordions, footer and so on) are in `reference/` as a visual and props reference, ready to build once this set has been reviewed.
+
+**Last synced with Figma: 8 October 2026.** See [What changed on 8 October](#what-changed-on-8-october).
 
 ## Quick start
 
@@ -18,12 +20,13 @@ npm run build-storybook  # static build in storybook-static/
 
 | Folder | What it holds |
 |---|---|
-| `tokens/tokens.css` | Every Figma variable and colour style as a CSS custom property, plus the type scale as classes (`.DT-Body-R`, `.M-Heading-h1` and so on) |
+| `tokens/tokens.css` | Every Figma variable as a CSS custom property, plus the type scale as classes (`.DT-Body-R`, `.M-Heading-h1` and so on) |
 | `tokens/tokens.json` | The same tokens as data, with usage notes and contrast ratios |
 | `css/base.css` | Shared styles: icon sizing, `.bn-visually-hidden`, and the focus ring |
 | `components/<name>/` | One folder per component: `.twig`, `.css`, `.component.yml` (props schema) and `.stories.js` |
 | `icons/` | The icon set as standalone SVGs (also built into `components/icon/icon.twig`) |
 | `bn_design_system.info.yml`, `.libraries.yml` | Makes the repo a Drupal theme |
+| `reference/` | The whole Figma library (54 components) as a browsable gallery with a README per component. A reference for building, not code to ship. See `reference/README.md` |
 
 ## Using it in Drupal
 
@@ -58,7 +61,11 @@ Every prop is listed in the component's `.component.yml`, and you can try them l
 
 ## Tokens
 
-Use the `bn-` tokens. They match the Figma variables one to one (`bn/brand/primary` → `--bn-brand-primary`). The `--style-…` tokens are the file's older colour styles, kept for reference; don't use them in new work.
+Use the `bn-` tokens. They match the Figma variables one to one (`bn/brand/primary` → `--bn-brand-primary`). The Figma file's old colour styles have been retired, so the `--style-…` tokens are gone.
+
+- **Radius:** `--bn-radius-sm` (4px) for buttons, inputs and controls, and `--bn-radius-full` (999px) for pills and circles.
+- **Spacing:** a 4px scale, `--bn-space-xs` (4) to `--bn-space-xl` (32). Gaps that were 10px in Figma now use `--bn-space-sm` (8px).
+- **Type:** desktop (`DT-`) and mobile (`M-`) classes. New on 8 October: `Body-R-Medium` (navigation and form inputs), `Body-R-Italic` (placeholders), `Label-S` and `Label-R` (uppercase labels for buttons and tags) and `DT-Badge`.
 
 ```css
 .my-thing {
@@ -83,28 +90,49 @@ Some icons in Figma are Font Awesome 6 Pro glyphs (`share`, `checkmark`, `close`
 
 ## Components and their Figma sources
 
-| Component | Figma |
-|---|---|
-| `button` | DT_Button, M_Button |
-| `action-link` | DT_Button Action, M_Button Action |
-| `follow-button` | DT_Follow, M Follow, DT_Table-Follow, M_Table-Follow |
-| `icon-button` | DT_Bookmark, DT_Share, M_Bookmark + Share |
-| `control` | Control |
-| `subscribe-toggle` | DT_SliderToggle |
-| `unsubscribe-button` | DT_Unsubscribe |
-| `form-field` | DT_Form/Fields, M_Form/Fields, DT_Form/Text Field, DT_Form/Text Area, DT_Form / Option |
-| `checkbox` | DT_Form/Checkbox Terms |
-| `radio` | DT_Form/Radio |
-| `search` | DT_Search |
-| `tag` | DT_Tag, M_Tag |
-| `tag-filter` | DT_Tag Filter, M_Tag Filter |
-| `sort-toggle` | DT_Toggle (Sort), M_Toggle |
-| `project-status` | DT_Project Status, M_Project Status |
-| `divider` | Divider |
-| `notification` | DT_Notification (Positive) |
-| `icon` | Icon/System, Icon/FA, Icon/Project Status |
+| Component | Figma (now) | Figma (before 8 October) |
+|---|---|---|
+| `button` | Atoms/Button | DT_Button, M_Button |
+| `action-link` | Atoms/Action Link | DT_Button Action, M_Button Action |
+| `follow-button` | Molecules/Follow Button | DT_Follow, M Follow, DT_Table-Follow, M_Table-Follow |
+| `icon-button` | Atoms/Icon Button | DT_Bookmark, DT_Share, M_Bookmark + Share |
+| `control` | Atoms/Control | Control |
+| `subscribe-toggle` | Molecules/Subscribe Toggle/Desktop | DT_SliderToggle |
+| `unsubscribe-button` | Atoms/Unsubscribe Button/Desktop | DT_Unsubscribe |
+| `form-field` | Molecules/Form Field, Atoms/Text Input/Desktop, Atoms/Text Area/Desktop, Atoms/Select/Desktop | DT_Form/Fields, M_Form/Fields, DT_Form/Text Field, DT_Form/Text Area, DT_Form / Option |
+| `checkbox` | Atoms/Checkbox/Desktop | DT_Form/Checkbox Terms |
+| `radio` | Atoms/Radio/Desktop | DT_Form/Radio |
+| `search` | Molecules/Search/Desktop | DT_Search |
+| `tag` | Atoms/Tag | DT_Tag, M_Tag |
+| `tag-filter` | Atoms/Tag Filter | DT_Tag Filter, M_Tag Filter |
+| `sort-toggle` | Molecules/Sort Toggle | DT_Toggle (Sort), M_Toggle |
+| `project-status` | Atoms/Project Status | DT_Project Status, M_Project Status |
+| `divider` | Atoms/Divider | Divider |
+| `notification` | Molecules/Notification/Positive | DT_Notification (Positive) |
+| `icon` | Icon/System, Icon/FA, Icon/Project Status | Icon/System, Icon/FA, Icon/Project Status |
 
 Hover states in Figma are separate variants. In code they're CSS `:hover`. Desktop and mobile versions that only differ in size are one component with a `size` prop.
+
+## What changed on 8 October
+
+The Figma library was cleaned up. This repo now matches it.
+
+- **Atomic names.** Every Figma component is now `Atoms/…`, `Molecules/…` or `Organisms/…`. The table above maps each Drupal component to its new and old Figma names.
+- **Desktop and mobile merged.** Most components are now one Figma component with a `Device` property (Desktop or Mobile), not two. This matches the `size` prop here.
+- **Tokens bound.** Spacing, corners and colours in Figma now use the `bn-` variables. In this repo, every 4px and pill corner now uses `--bn-radius-sm` or `--bn-radius-full`. Nothing looks different.
+- **New tokens:** `--bn-radius-full` and the new type classes listed under Tokens.
+- **Colour styles retired.** The 24 `--style-…` tokens are removed. No component used them.
+- **Variant names tidied.** For example `Status=In progress` (was Construction) and `Selected=First / Second` on Sort Toggle.
+
+## Still to build
+
+These are in Figma and in `reference/`, but not yet built as Drupal components. Open `reference/index.html` to see them, and read `reference/components/<Name>/README.md` for their props and variants.
+
+- **Atoms:** Date Cell, Footer Link, List Link, Page Counter, Published Time, Nav Item (four parts, parked)
+- **Molecules:** Accordion Item, Address Fields, Company Tree, Filter Dropdown, Help CTA, Locked Content, Notification/Trial, Pagination, Radio Group, Search Tabs
+- **Organisms:** Accordion Set, D&I Navigation, D&I Sub-header, Filter Set (three parts, parked), Footer, Header (desktop and mobile, parked), MyBN Navigation, MyBN Sub-header, News Card, Primary Navigation, Sector Briefing Card, Utility Bar
+
+"Parked" means the structure is still being decided in Figma, so hold off building those.
 
 ## Decisions to review
 
@@ -114,7 +142,7 @@ These go beyond what the Figma file defines, or interpret it. Each is easy to ch
 2. **Hover on mobile-only buttons.** `previous` and `next` (from M_Button) use the same grey hover as the other light buttons.
 3. **Follow hover.** The Figma Hover variant has a 0px gap and placeholder text. The code keeps the 16px gap so the label doesn't jump.
 4. **Control** has no hover state in Figma, so it has none here.
-5. **Project status** `in-progress` is the Figma variant named `Status=Construction` (its label reads "In progress").
+5. **Project status** `in-progress` matches the Figma variant `Status=In progress` (renamed from `Status=Construction` on 8 October).
 6. **Radio dot** is drawn in CSS: a 16px `bn-brand-primary` circle, the same as the Font Awesome glyph in Figma.
 7. **Search width** defaults to Figma's 523.66px and shrinks to fit narrower containers.
 8. **Breakpoints.** Figma has separate desktop and mobile components but no breakpoint values, so mobile sizes are a `size` prop, not a media query. Once the breakpoints are agreed, they can switch automatically.

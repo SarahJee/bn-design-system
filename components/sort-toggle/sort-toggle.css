@@ -15,7 +15,7 @@
   display: inline-flex;
   align-items: center;
   height: 44px;
-  border-radius: 4px;
+  border-radius: var(--bn-radius-sm);
 }
 .bn-sort__options::after {
   content: '';
@@ -38,10 +38,10 @@
   cursor: pointer;
 }
 .bn-sort__option:first-child {
-  border-radius: 4px 0 0 4px;
+  border-radius: var(--bn-radius-sm) 0 0 var(--bn-radius-sm);
 }
 .bn-sort__option:last-child {
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 var(--bn-radius-sm) var(--bn-radius-sm) 0;
 }
 .bn-sort__option:has(input:checked) {
   background: var(--bn-brand-primary);
