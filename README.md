@@ -82,7 +82,7 @@ Use the `bn-` tokens. They match the Figma variables one to one (`bn/brand/prima
 
 Business News is the default. For Defence Economy, add `data-brand="defence-economy"` to `<html>` (or any container). Its colours and type then apply to everything inside, with no other changes. Orion uses Business News values until its brand is defined. In Storybook, use the **Brand** menu in the toolbar.
 
-Defence Economy's values are exploratory. Where it has no style of its own yet (Badge, Labels, Display headings, Blockquote, Body/R Medium and Italic), it uses Business News sizes. It has no brand primary, bright, dark or accent colours yet, so those are Business News values too.
+Defence Economy's values are exploratory. Where it has no style of its own yet (Badge, Labels, Display headings, Blockquote, Body/R Medium and Italic), it uses Business News sizes. Its brand primary, and so its default button, is the Money gold (`--bn-brand-primary` points at `--bn-content-money`). It has no bright, dark or accent colours yet, so those are Business News values.
 
 Contrast to watch (also noted in `tokens.json`):
 

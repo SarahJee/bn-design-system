@@ -36,8 +36,8 @@
    Known gaps (to be resolved before v1):
    - Icons are Font Awesome (mixed versions 5, 6 and 7); not tokenised yet.
    - Some components (Header, Nav Item, Filter Set) are still being finalised.
-   - Defence Economy has no brand primary, bright, dark, or accent colours
-     yet; it uses Business News values for these.
+   - Defence Economy has no bright, dark, or accent colours yet; it uses
+     Business News values for these.
    ========================================================================== */
 
 :root {
@@ -467,8 +467,11 @@
 /* Defence Economy  ·  Figma: Brand collection, Defence Economy mode
    Exploratory values. Only differences from Business News are listed. */
 [data-brand="defence-economy"] {
-  /* Colour (brand, primary, bright, dark, and accent use Business News
-     values until Defence Economy's are chosen) */
+  /* Colour. Brand primary is the Money gold (the default button).
+     Bright, dark, and accent use Business News values until Defence
+     Economy's are chosen. */
+  --bn-brand-primary: var(--bn-content-money);
+  --bn-brand-primary-hover: #7a5806;
   --bn-fonts-headings: #0d1f3c;
   --bn-fonts-links: #0d1f3c;
   --bn-fonts-body: #40464f;
