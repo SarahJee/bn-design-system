@@ -7,7 +7,7 @@
   width: 100%;
   min-height: 48px;
   padding: 11px 16px 13px;
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
 }
 .bn-notification--positive {
   background: var(--bn-system-green-bg);

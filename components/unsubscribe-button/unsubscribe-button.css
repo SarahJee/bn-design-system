@@ -10,7 +10,7 @@
   background: var(--bn-system-red-bg);
   box-shadow: inset 0 0 0 2px var(--bn-system-red-deco);
   color: var(--bn-system-red-text);
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
   font-size: 17px;
   font-weight: 500;
   line-height: 20.5px;
