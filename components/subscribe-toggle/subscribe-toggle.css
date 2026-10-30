@@ -9,7 +9,7 @@
   padding: 0;
   border: 0;
   border-radius: var(--bn-radius-sm);
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
   font-size: 17px;
   line-height: 20.5px;
   color: var(--bn-fonts-headings);

@@ -5,7 +5,7 @@
   gap: 4px;
   padding: 8px;
   color: var(--bn-fonts-links);
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
   font-size: 14px;
   font-weight: 400;
   line-height: 20.44px;

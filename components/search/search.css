@@ -32,7 +32,7 @@
   border: 0;
   background: transparent;
   color: var(--bn-fonts-links);
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;

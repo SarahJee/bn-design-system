@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   align-items: center;
   column-gap: 4px;
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
   font-size: 16px;
   line-height: 1.5;
   color: var(--bn-fonts-links);

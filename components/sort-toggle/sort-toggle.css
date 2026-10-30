@@ -3,7 +3,7 @@
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
-  font-family: var(--font-barlow);
+  font-family: var(--bn-font-primary);
 }
 .bn-sort__label {
   color: var(--bn-fonts-body);

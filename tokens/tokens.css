@@ -1,88 +1,927 @@
-/* BN Component Library tokens. Generated from tokens.json (Figma variables and styles). */
-:root, [data-theme="light"] {
+/* ==========================================================================
+   Business News design tokens  ·  v0.2 (interim)
+   Source: BN Component Library (Figma)  ·  Updated 30 October 2026
+
+   Used by the Drupal theme, Storybook and the reference gallery. Names match the Figma variables and
+   text styles: 'bn/brand/primary' in Figma is --bn-brand-primary here, and
+   'bn/type/body-r/size' in Figma is --bn-text-body-r-size here.
+
+   Two switches, matching Figma:
+   - Brand: Business News is the default. Add data-brand="defence-economy"
+     to <html> (or any container) for Defence Economy. Orion uses Business
+     News values until its brand is defined.
+   - Device: desktop values are the default. Mobile values override them
+     below the breakpoint (767px, matching UIkit's 768px 'medium' breakpoint).
+
+   Every style keeps its own desktop and mobile value, even where they are
+   the same today, so either can change without affecting the other.
+   Sizes are in rem (16px base); the px value is noted beside each.
+   Figma stores line height and letter spacing in px; this file uses
+   unitless line heights and em letter spacing. The results are the same.
+
+   Changes in v0.2:
+   - Typefaces are named by role: --bn-font-heading, --bn-font-primary
+     (body) and --bn-font-editorial. These replace --bn-font-sans and
+     --bn-font-serif, which have been removed.
+   - Each text style picks its typeface per brand (for example, heading-h2
+     is editorial in Business News and heading in Defence Economy).
+   - New weight tokens (--bn-font-weight-*), matching Figma's Brand collection.
+   - New styles: heading-h1-display, heading-h3-display, blockquote.
+   - Mobile body-xs, body-xs-bold and body-xs-link are now 12px (were 10px).
+   - New Defence Economy brand block for type and colour (exploratory
+     values; where DE has nothing yet, it uses Business News values).
+   - New colour tokens: --bn-bg-canvas and --bn-content-* (money, infra,
+     tech, work, policy).
+
+   Known gaps (to be resolved before v1):
+   - Icons are Font Awesome (mixed versions 5, 6 and 7); not tokenised yet.
+   - Some components (Header, Nav Item, Filter Set) are still being finalised.
+   - Defence Economy has no brand primary, bright, dark, or accent colours
+     yet; it uses Business News values for these.
+   ========================================================================== */
+
+:root {
+  /* Colour */
   --bn-brand-primary: #0072b0;
   --bn-brand-primary-hover: #005d8f;
-  --bn-brand-white: #ffffff;
-  --bn-brand-accent: #fbbd21;
   --bn-brand-bright: #1e9ce0;
+  --bn-brand-dark: #01293f;
+  --bn-brand-accent: #fbbd21;
+  --bn-brand-white: #ffffff;
   --bn-fonts-headings: #001825;
   --bn-fonts-links: #001825;
   --bn-fonts-body: #4a575f;
   --bn-bg-blue: #e0f3ff;
   --bn-bg-grey: #e8ebed;
-  --bn-brand-dark: #01293f;
+  --bn-bg-canvas: #ffffff;
   --bn-system-yellow: #dfa703;
   --bn-system-green-deco: #54b94b;
   --bn-system-green-bg: #e2ffdf;
   --bn-system-red-deco: #ed4e4e;
   --bn-system-red-text: #cc2727;
   --bn-system-red-bg: #ffe7e7;
-}
-:root {
+
+  /* Content categories (Defence Economy only; Business News has none,
+     so these point at brand primary as a placeholder) */
+  --bn-content-money: var(--bn-brand-primary);
+  --bn-content-infra: var(--bn-brand-primary);
+  --bn-content-tech: var(--bn-brand-primary);
+  --bn-content-work: var(--bn-brand-primary);
+  --bn-content-policy: var(--bn-brand-primary);
+
+  /* Spacing */
   --bn-space-xs: 4px;
   --bn-space-sm: 8px;
   --bn-space-md: 16px;
   --bn-space-lg: 24px;
   --bn-space-xl: 32px;
+
+  /* Radius */
   --bn-radius-sm: 4px;
-  --bn-radius-full: 999px;
-  --font-barlow: Barlow, "Helvetica Neue", Arial, sans-serif;
-  --font-playfair: "Playfair Display", Georgia, serif;
+  --bn-radius-full: 999px;  /* pills and circles */
+
+  /* Font families (Figma: Brand collection, Business News mode) */
+  --bn-font-heading: "Barlow", system-ui, sans-serif;
+  --bn-font-primary: "Barlow", system-ui, sans-serif;
+  --bn-font-editorial: "Playfair Display", Georgia, serif;
+
+  /* Legacy names, kept only because the compiled reference gallery
+     (reference/components/bundle.js) still uses them. Don't use these in
+     new work; remove them when the gallery is rebuilt. */
+  --font-barlow: var(--bn-font-primary);
+  --font-playfair: var(--bn-font-editorial);
+
+  /* Font weights (Figma: Brand collection, bn/font/style/*) */
+  --bn-font-weight-regular: 400;
+  --bn-font-weight-medium: 500;
+  --bn-font-weight-semibold: 600;
+  --bn-font-weight-bold: 700;
+
+  /* Type (desktop / default)  ·  Figma: Type scale collection, Desktop mode */
+  /* heading-h1: 40px */
+  --bn-text-heading-h1-font: var(--bn-font-heading);
+  --bn-text-heading-h1-size: 2.5rem;
+  --bn-text-heading-h1-line-height: 1.2;
+  --bn-text-heading-h1-weight: var(--bn-font-weight-semibold);
+  --bn-text-heading-h1-letter-spacing: -0.02em;
+  --bn-text-heading-h1-style: normal;
+  --bn-text-heading-h1-transform: none;
+  --bn-text-heading-h1-decoration: none;
+  /* heading-h1-display: 40px  (new in v0.2) */
+  --bn-text-heading-h1-display-font: var(--bn-font-editorial);
+  --bn-text-heading-h1-display-size: 2.5rem;
+  --bn-text-heading-h1-display-line-height: 1.2;
+  --bn-text-heading-h1-display-weight: var(--bn-font-weight-semibold);
+  --bn-text-heading-h1-display-letter-spacing: -0.02em;
+  --bn-text-heading-h1-display-style: normal;
+  --bn-text-heading-h1-display-transform: none;
+  --bn-text-heading-h1-display-decoration: none;
+  /* heading-h2: 32px */
+  --bn-text-heading-h2-font: var(--bn-font-editorial);
+  --bn-text-heading-h2-size: 2rem;
+  --bn-text-heading-h2-line-height: 1.2;
+  --bn-text-heading-h2-weight: var(--bn-font-weight-medium);
+  --bn-text-heading-h2-letter-spacing: -0.014em;
+  --bn-text-heading-h2-style: normal;
+  --bn-text-heading-h2-transform: none;
+  --bn-text-heading-h2-decoration: none;
+  /* heading-h3: 32px */
+  --bn-text-heading-h3-font: var(--bn-font-heading);
+  --bn-text-heading-h3-size: 2rem;
+  --bn-text-heading-h3-line-height: 1.2;
+  --bn-text-heading-h3-weight: var(--bn-font-weight-medium);
+  --bn-text-heading-h3-letter-spacing: -0.02em;
+  --bn-text-heading-h3-style: normal;
+  --bn-text-heading-h3-transform: none;
+  --bn-text-heading-h3-decoration: none;
+  /* heading-h3-article: 24px */
+  --bn-text-heading-h3-article-font: var(--bn-font-editorial);
+  --bn-text-heading-h3-article-size: 1.5rem;
+  --bn-text-heading-h3-article-line-height: 1.2;
+  --bn-text-heading-h3-article-weight: var(--bn-font-weight-medium);
+  --bn-text-heading-h3-article-letter-spacing: -0.01em;
+  --bn-text-heading-h3-article-style: normal;
+  --bn-text-heading-h3-article-transform: none;
+  --bn-text-heading-h3-article-decoration: none;
+  /* heading-h3-display: 32px  (new in v0.2) */
+  --bn-text-heading-h3-display-font: var(--bn-font-editorial);
+  --bn-text-heading-h3-display-size: 2rem;
+  --bn-text-heading-h3-display-line-height: 1.2;
+  --bn-text-heading-h3-display-weight: var(--bn-font-weight-medium);
+  --bn-text-heading-h3-display-letter-spacing: -0.01em;
+  --bn-text-heading-h3-display-style: normal;
+  --bn-text-heading-h3-display-transform: none;
+  --bn-text-heading-h3-display-decoration: none;
+  /* heading-h4: 24px */
+  --bn-text-heading-h4-font: var(--bn-font-heading);
+  --bn-text-heading-h4-size: 1.5rem;
+  --bn-text-heading-h4-line-height: 1.3;
+  --bn-text-heading-h4-weight: var(--bn-font-weight-semibold);
+  --bn-text-heading-h4-letter-spacing: -0.01em;
+  --bn-text-heading-h4-style: normal;
+  --bn-text-heading-h4-transform: none;
+  --bn-text-heading-h4-decoration: none;
+  /* heading-h5: 18px */
+  --bn-text-heading-h5-font: var(--bn-font-heading);
+  --bn-text-heading-h5-size: 1.125rem;
+  --bn-text-heading-h5-line-height: 1.5;
+  --bn-text-heading-h5-weight: var(--bn-font-weight-medium);
+  --bn-text-heading-h5-letter-spacing: 0;
+  --bn-text-heading-h5-style: normal;
+  --bn-text-heading-h5-transform: none;
+  --bn-text-heading-h5-decoration: none;
+  /* heading-span: 16px */
+  --bn-text-heading-span-font: var(--bn-font-heading);
+  --bn-text-heading-span-size: 1rem;
+  --bn-text-heading-span-line-height: 1;
+  --bn-text-heading-span-weight: var(--bn-font-weight-semibold);
+  --bn-text-heading-span-letter-spacing: 0.1em;
+  --bn-text-heading-span-style: normal;
+  --bn-text-heading-span-transform: uppercase;
+  --bn-text-heading-span-decoration: none;
+  /* body-xl: 22px */
+  --bn-text-body-xl-font: var(--bn-font-primary);
+  --bn-text-body-xl-size: 1.375rem;
+  --bn-text-body-xl-line-height: 1.45;
+  --bn-text-body-xl-weight: var(--bn-font-weight-regular);
+  --bn-text-body-xl-letter-spacing: -0.011em;
+  --bn-text-body-xl-style: normal;
+  --bn-text-body-xl-transform: none;
+  --bn-text-body-xl-decoration: none;
+  /* body-xl-bold: 22px */
+  --bn-text-body-xl-bold-font: var(--bn-font-primary);
+  --bn-text-body-xl-bold-size: 1.375rem;
+  --bn-text-body-xl-bold-line-height: 1.45;
+  --bn-text-body-xl-bold-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-xl-bold-letter-spacing: -0.011em;
+  --bn-text-body-xl-bold-style: normal;
+  --bn-text-body-xl-bold-transform: none;
+  --bn-text-body-xl-bold-decoration: none;
+  /* body-xl-link: 22px */
+  --bn-text-body-xl-link-font: var(--bn-font-primary);
+  --bn-text-body-xl-link-size: 1.375rem;
+  --bn-text-body-xl-link-line-height: 1.45;
+  --bn-text-body-xl-link-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-xl-link-letter-spacing: -0.011em;
+  --bn-text-body-xl-link-style: normal;
+  --bn-text-body-xl-link-transform: none;
+  --bn-text-body-xl-link-decoration: underline;
+  /* body-l: 20px */
+  --bn-text-body-l-font: var(--bn-font-primary);
+  --bn-text-body-l-size: 1.25rem;
+  --bn-text-body-l-line-height: 1.45;
+  --bn-text-body-l-weight: var(--bn-font-weight-regular);
+  --bn-text-body-l-letter-spacing: -0.011em;
+  --bn-text-body-l-style: normal;
+  --bn-text-body-l-transform: none;
+  --bn-text-body-l-decoration: none;
+  /* body-l-bold: 20px */
+  --bn-text-body-l-bold-font: var(--bn-font-primary);
+  --bn-text-body-l-bold-size: 1.25rem;
+  --bn-text-body-l-bold-line-height: 1.45;
+  --bn-text-body-l-bold-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-l-bold-letter-spacing: -0.011em;
+  --bn-text-body-l-bold-style: normal;
+  --bn-text-body-l-bold-transform: none;
+  --bn-text-body-l-bold-decoration: none;
+  /* body-l-link: 20px */
+  --bn-text-body-l-link-font: var(--bn-font-primary);
+  --bn-text-body-l-link-size: 1.25rem;
+  --bn-text-body-l-link-line-height: 1.45;
+  --bn-text-body-l-link-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-l-link-letter-spacing: -0.011em;
+  --bn-text-body-l-link-style: normal;
+  --bn-text-body-l-link-transform: none;
+  --bn-text-body-l-link-decoration: underline;
+  /* body-r: 16px */
+  --bn-text-body-r-font: var(--bn-font-primary);
+  --bn-text-body-r-size: 1rem;
+  --bn-text-body-r-line-height: 1.5;
+  --bn-text-body-r-weight: var(--bn-font-weight-regular);
+  --bn-text-body-r-letter-spacing: 0;
+  --bn-text-body-r-style: normal;
+  --bn-text-body-r-transform: none;
+  --bn-text-body-r-decoration: none;
+  /* body-r-bold: 16px */
+  --bn-text-body-r-bold-font: var(--bn-font-primary);
+  --bn-text-body-r-bold-size: 1rem;
+  --bn-text-body-r-bold-line-height: 1.5;
+  --bn-text-body-r-bold-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-r-bold-letter-spacing: 0;
+  --bn-text-body-r-bold-style: normal;
+  --bn-text-body-r-bold-transform: none;
+  --bn-text-body-r-bold-decoration: none;
+  /* body-r-medium: 16px */
+  --bn-text-body-r-medium-font: var(--bn-font-primary);
+  --bn-text-body-r-medium-size: 1rem;
+  --bn-text-body-r-medium-line-height: 1.5;
+  --bn-text-body-r-medium-weight: var(--bn-font-weight-medium);
+  --bn-text-body-r-medium-letter-spacing: 0;
+  --bn-text-body-r-medium-style: normal;
+  --bn-text-body-r-medium-transform: none;
+  --bn-text-body-r-medium-decoration: none;
+  /* body-r-italic: 16px */
+  --bn-text-body-r-italic-font: var(--bn-font-primary);
+  --bn-text-body-r-italic-size: 1rem;
+  --bn-text-body-r-italic-line-height: 1.5;
+  --bn-text-body-r-italic-weight: var(--bn-font-weight-regular);
+  --bn-text-body-r-italic-letter-spacing: 0;
+  --bn-text-body-r-italic-style: italic;
+  --bn-text-body-r-italic-transform: none;
+  --bn-text-body-r-italic-decoration: none;
+  /* body-r-link: 16px */
+  --bn-text-body-r-link-font: var(--bn-font-primary);
+  --bn-text-body-r-link-size: 1rem;
+  --bn-text-body-r-link-line-height: 1.5;
+  --bn-text-body-r-link-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-r-link-letter-spacing: 0;
+  --bn-text-body-r-link-style: normal;
+  --bn-text-body-r-link-transform: none;
+  --bn-text-body-r-link-decoration: underline;
+  /* body-s: 14px */
+  --bn-text-body-s-font: var(--bn-font-primary);
+  --bn-text-body-s-size: 0.875rem;
+  --bn-text-body-s-line-height: 1.3;
+  --bn-text-body-s-weight: var(--bn-font-weight-regular);
+  --bn-text-body-s-letter-spacing: 0;
+  --bn-text-body-s-style: normal;
+  --bn-text-body-s-transform: none;
+  --bn-text-body-s-decoration: none;
+  /* body-s-bold: 14px */
+  --bn-text-body-s-bold-font: var(--bn-font-primary);
+  --bn-text-body-s-bold-size: 0.875rem;
+  --bn-text-body-s-bold-line-height: 1.3;
+  --bn-text-body-s-bold-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-s-bold-letter-spacing: -0.011em;
+  --bn-text-body-s-bold-style: normal;
+  --bn-text-body-s-bold-transform: none;
+  --bn-text-body-s-bold-decoration: none;
+  /* body-s-link: 14px */
+  --bn-text-body-s-link-font: var(--bn-font-primary);
+  --bn-text-body-s-link-size: 0.875rem;
+  --bn-text-body-s-link-line-height: 1.3;
+  --bn-text-body-s-link-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-s-link-letter-spacing: -0.011em;
+  --bn-text-body-s-link-style: normal;
+  --bn-text-body-s-link-transform: none;
+  --bn-text-body-s-link-decoration: underline;
+  /* body-xs: 12px */
+  --bn-text-body-xs-font: var(--bn-font-primary);
+  --bn-text-body-xs-size: 0.75rem;
+  --bn-text-body-xs-line-height: 1.2;
+  --bn-text-body-xs-weight: var(--bn-font-weight-regular);
+  --bn-text-body-xs-letter-spacing: 0;
+  --bn-text-body-xs-style: normal;
+  --bn-text-body-xs-transform: none;
+  --bn-text-body-xs-decoration: none;
+  /* body-xs-bold: 12px */
+  --bn-text-body-xs-bold-font: var(--bn-font-primary);
+  --bn-text-body-xs-bold-size: 0.75rem;
+  --bn-text-body-xs-bold-line-height: 1.2;
+  --bn-text-body-xs-bold-weight: var(--bn-font-weight-semibold);
+  --bn-text-body-xs-bold-letter-spacing: 0;
+  --bn-text-body-xs-bold-style: normal;
+  --bn-text-body-xs-bold-transform: none;
+  --bn-text-body-xs-bold-decoration: none;
+  /* body-xs-link: 12px */
+  --bn-text-body-xs-link-font: var(--bn-font-primary);
+  --bn-text-body-xs-link-size: 0.75rem;
+  --bn-text-body-xs-link-line-height: 1.2;
+  --bn-text-body-xs-link-weight: var(--bn-font-weight-bold);
+  --bn-text-body-xs-link-letter-spacing: 0;
+  --bn-text-body-xs-link-style: normal;
+  --bn-text-body-xs-link-transform: none;
+  --bn-text-body-xs-link-decoration: underline;
+  /* blockquote: 22px  (new in v0.2) */
+  --bn-text-blockquote-font: var(--bn-font-editorial);
+  --bn-text-blockquote-size: 1.375rem;
+  --bn-text-blockquote-line-height: 1.5;
+  --bn-text-blockquote-weight: var(--bn-font-weight-regular);
+  --bn-text-blockquote-letter-spacing: -0.011em;
+  --bn-text-blockquote-style: normal;
+  --bn-text-blockquote-transform: none;
+  --bn-text-blockquote-decoration: none;
+  /* label-r: 16px */
+  --bn-text-label-r-font: var(--bn-font-heading);
+  --bn-text-label-r-size: 1rem;
+  --bn-text-label-r-line-height: 1;
+  --bn-text-label-r-weight: var(--bn-font-weight-semibold);
+  --bn-text-label-r-letter-spacing: 0;
+  --bn-text-label-r-style: normal;
+  --bn-text-label-r-transform: uppercase;
+  --bn-text-label-r-decoration: none;
+  /* label-s: 12px */
+  --bn-text-label-s-font: var(--bn-font-heading);
+  --bn-text-label-s-size: 0.75rem;
+  --bn-text-label-s-line-height: 1.3333;
+  --bn-text-label-s-weight: var(--bn-font-weight-semibold);
+  --bn-text-label-s-letter-spacing: 0;
+  --bn-text-label-s-style: normal;
+  --bn-text-label-s-transform: uppercase;
+  --bn-text-label-s-decoration: none;
+  /* badge: 8px */
+  --bn-text-badge-font: var(--bn-font-heading);
+  --bn-text-badge-size: 0.5rem;
+  --bn-text-badge-line-height: 1;
+  --bn-text-badge-weight: var(--bn-font-weight-bold);
+  --bn-text-badge-letter-spacing: 0;
+  --bn-text-badge-style: normal;
+  --bn-text-badge-transform: none;
+  --bn-text-badge-decoration: none;
+  /* marketing-heading-h1: 60px */
+  --bn-text-marketing-heading-h1-font: var(--bn-font-editorial);
+  --bn-text-marketing-heading-h1-size: 3.75rem;
+  --bn-text-marketing-heading-h1-line-height: 1.2;
+  --bn-text-marketing-heading-h1-weight: var(--bn-font-weight-medium);
+  --bn-text-marketing-heading-h1-letter-spacing: -0.02em;
+  --bn-text-marketing-heading-h1-style: normal;
+  --bn-text-marketing-heading-h1-transform: none;
+  --bn-text-marketing-heading-h1-decoration: none;
+  /* marketing-heading-h2: 40px */
+  --bn-text-marketing-heading-h2-font: var(--bn-font-editorial);
+  --bn-text-marketing-heading-h2-size: 2.5rem;
+  --bn-text-marketing-heading-h2-line-height: 1.3;
+  --bn-text-marketing-heading-h2-weight: var(--bn-font-weight-medium);
+  --bn-text-marketing-heading-h2-letter-spacing: -0.014em;
+  --bn-text-marketing-heading-h2-style: normal;
+  --bn-text-marketing-heading-h2-transform: none;
+  --bn-text-marketing-heading-h2-decoration: none;
 }
-.DT-Heading-h1-Page-title { font-family: var(--font-barlow); font-size: 40px; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; }
-.DT-Heading-h2 { font-family: var(--font-playfair); font-size: 32px; line-height: 1.2; font-weight: 500; letter-spacing: -0.0139999995em; }
-.DT-Heading-h3 { font-family: var(--font-barlow); font-size: 32px; line-height: 1.2; font-weight: 500; letter-spacing: -0.02em; }
-.DT-Heading-h3-Article { font-family: var(--font-playfair); font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
-.DT-Heading-h4 { font-family: var(--font-barlow); font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; }
-.DT-Heading-Span { font-family: var(--font-barlow); font-size: 16px; line-height: 1; font-weight: 600; letter-spacing: 0.1em; }
-.DT-Body-XS { font-family: var(--font-barlow); font-size: 12px; line-height: 1.2; font-weight: 400; letter-spacing: 0; }
-.DT-Body-XS-Bold { font-family: var(--font-barlow); font-size: 12px; line-height: 1.2; font-weight: 600; letter-spacing: 0; }
-.DT-Body-XS-LINK { font-family: var(--font-barlow); font-size: 12px; line-height: 1.2; font-weight: 700; letter-spacing: 0; }
-.DT-Body-S { font-family: var(--font-barlow); font-size: 14px; line-height: 1.3; font-weight: 400; letter-spacing: 0; }
-.DT-Body-S-Bold { font-family: var(--font-barlow); font-size: 14px; line-height: 1.3; font-weight: 600; letter-spacing: -0.011em; }
-.DT-Body-S-LINK { font-family: var(--font-barlow); font-size: 14px; line-height: 1.3; font-weight: 600; letter-spacing: -0.011em; }
-.DT-Body-R { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 400; letter-spacing: 0; }
-.DT-Body-R-Bold { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
-.DT-Body-R-LINK { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
-.DT-Body-R-Medium { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 500; letter-spacing: 0; }
-.DT-Body-R-Italic { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 400; font-style: italic; letter-spacing: 0; }
-.DT-Body-L { font-family: var(--font-barlow); font-size: 20px; line-height: 1.45; font-weight: 400; letter-spacing: -0.011em; }
-.DT-Body-L-Bold { font-family: var(--font-barlow); font-size: 20px; line-height: 1.45; font-weight: 600; letter-spacing: -0.011em; }
-.DT-Body-L-LINK { font-family: var(--font-barlow); font-size: 20px; line-height: 1.45; font-weight: 600; letter-spacing: -0.011em; }
-.DT-Body-XL { font-family: var(--font-barlow); font-size: 22px; line-height: 1.45; font-weight: 400; letter-spacing: -0.011em; }
-.DT-Body-XL-Bold { font-family: var(--font-barlow); font-size: 22px; line-height: 1.45; font-weight: 600; letter-spacing: -0.011em; }
-.DT-Body-XL-LINK { font-family: var(--font-barlow); font-size: 22px; line-height: 1.45; font-weight: 600; letter-spacing: -0.011em; }
-.M-Heading-h1-Page-title { font-family: var(--font-barlow); font-size: 32px; line-height: 1.3; font-weight: 600; letter-spacing: -0.011em; }
-.M-Heading-h2 { font-family: var(--font-playfair); font-size: 28px; line-height: 1.3; font-weight: 500; letter-spacing: 0; }
-.M-Heading-h3 { font-family: var(--font-barlow); font-size: 26px; line-height: 1.3; font-weight: 500; letter-spacing: 0; }
-.M-Heading-h3-Article { font-family: var(--font-playfair); font-size: 24px; line-height: 1.35; font-weight: 500; letter-spacing: 0; }
-.M-Heading-h4 { font-family: var(--font-barlow); font-size: 20px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
-.M-Heading-h5 { font-family: var(--font-barlow); font-size: 18px; line-height: 1.5; font-weight: 500; letter-spacing: 0; }
-.M-Heading-Span { font-family: var(--font-barlow); font-size: 14px; line-height: 1.4; font-weight: 600; letter-spacing: 0.15em; }
-.M-Heading-h3-Article-lib { font-family: var(--font-playfair); font-size: 24px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
-.M-Body-XS { font-family: var(--font-barlow); font-size: 10px; line-height: 1.2; font-weight: 400; letter-spacing: 0; }
-.M-Body-XS-Bold { font-family: var(--font-barlow); font-size: 10px; line-height: 1.2; font-weight: 600; letter-spacing: 0; }
-.M-Body-XS-LINK { font-family: var(--font-barlow); font-size: 10px; line-height: 1.2; font-weight: 700; letter-spacing: 0; }
-.M-Body-S { font-family: var(--font-barlow); font-size: 14px; line-height: 1.3; font-weight: 400; letter-spacing: 0; }
-.M-Body-S-Bold { font-family: var(--font-barlow); font-size: 14px; line-height: 1.3; font-weight: 600; letter-spacing: 0; }
-.M-Body-S-LINK { font-family: var(--font-barlow); font-size: 14px; line-height: 1.3; font-weight: 700; letter-spacing: 0; }
-.M-Body-R { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 400; letter-spacing: 0; }
-.M-Body-R-Bold { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
-.M-Body-R-LINK { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
-.M-Body-R-Medium { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 500; letter-spacing: 0; }
-.M-Body-R-Italic { font-family: var(--font-barlow); font-size: 16px; line-height: 1.5; font-weight: 400; font-style: italic; letter-spacing: 0; }
-.M-Body-L { font-family: var(--font-barlow); font-size: 18px; line-height: 1.45; font-weight: 400; letter-spacing: -0.011em; }
-.M-Body-L-Bold { font-family: var(--font-barlow); font-size: 18px; line-height: 1.45; font-weight: 600; letter-spacing: -0.011em; }
-.M-Body-L-LINK { font-family: var(--font-barlow); font-size: 18px; line-height: 1.45; font-weight: 600; letter-spacing: -0.011em; }
-.M-Body-XL { font-family: var(--font-barlow); font-size: 20px; line-height: 1.5; font-weight: 400; letter-spacing: -0.011em; }
-.M-Body-XL-Bold { font-family: var(--font-barlow); font-size: 20px; line-height: 1.5; font-weight: 600; letter-spacing: -0.011em; }
-.M-Body-XL-LINK { font-family: var(--font-barlow); font-size: 20px; line-height: 1.5; font-weight: 600; letter-spacing: -0.011em; }
-.Marketing-DT-Heading-h1 { font-family: var(--font-playfair); font-size: 60px; line-height: 1.2; font-weight: 500; letter-spacing: -0.02em; }
-.Marketing-DT-Heading-h2 { font-family: var(--font-playfair); font-size: 40px; line-height: 1.3; font-weight: 500; letter-spacing: -0.0139999995em; }
-.Marketing-M-Heading-h1 { font-family: var(--font-playfair); font-size: 36px; line-height: 1.3; font-weight: 500; letter-spacing: -0.011em; }
-.Marketing-M-Heading-h2 { font-family: var(--font-playfair); font-size: 32px; line-height: 1.3; font-weight: 500; letter-spacing: 0; }
-.DT-Label-S { font-family: var(--font-barlow); font-size: 12px; line-height: 1.3333; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
-.DT-Label-R { font-family: var(--font-barlow); font-size: 16px; line-height: 1; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
-.M-Label-S { font-family: var(--font-barlow); font-size: 12px; line-height: 1.3333; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
-.M-Label-R { font-family: var(--font-barlow); font-size: 14px; line-height: 1.1429; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
-.DT-Badge { font-family: var(--font-barlow); font-size: 8px; line-height: 1; font-weight: 700; letter-spacing: 0; }
+
+/* Mobile type overrides  ·  Figma: Type scale collection, Mobile mode */
+@media (max-width: 767px) {
+  :root {
+    /* heading-h1: 32px */
+    --bn-text-heading-h1-size: 2rem;
+    --bn-text-heading-h1-line-height: 1.3;
+    --bn-text-heading-h1-letter-spacing: -0.011em;
+    /* heading-h1-display: 32px */
+    --bn-text-heading-h1-display-size: 2rem;
+    --bn-text-heading-h1-display-line-height: 1.3;
+    --bn-text-heading-h1-display-letter-spacing: -0.011em;
+    /* heading-h2: 28px */
+    --bn-text-heading-h2-size: 1.75rem;
+    --bn-text-heading-h2-line-height: 1.3;
+    --bn-text-heading-h2-letter-spacing: 0;
+    /* heading-h3: 26px */
+    --bn-text-heading-h3-size: 1.625rem;
+    --bn-text-heading-h3-line-height: 1.3;
+    --bn-text-heading-h3-letter-spacing: 0;
+    /* heading-h3-article: 24px */
+    --bn-text-heading-h3-article-line-height: 1.35;
+    --bn-text-heading-h3-article-letter-spacing: 0;
+    /* heading-h3-display: 26px */
+    --bn-text-heading-h3-display-size: 1.625rem;
+    --bn-text-heading-h3-display-line-height: 1.3;
+    --bn-text-heading-h3-display-letter-spacing: 0;
+    /* heading-h4: 20px */
+    --bn-text-heading-h4-size: 1.25rem;
+    --bn-text-heading-h4-line-height: 1.5;
+    --bn-text-heading-h4-letter-spacing: 0;
+    /* heading-span: 14px */
+    --bn-text-heading-span-size: 0.875rem;
+    --bn-text-heading-span-line-height: 1.4;
+    --bn-text-heading-span-letter-spacing: 0.15em;
+    /* body-xl: 20px */
+    --bn-text-body-xl-size: 1.25rem;
+    --bn-text-body-xl-line-height: 1.5;
+    /* body-xl-bold: 20px */
+    --bn-text-body-xl-bold-size: 1.25rem;
+    --bn-text-body-xl-bold-line-height: 1.5;
+    /* body-xl-link: 20px */
+    --bn-text-body-xl-link-size: 1.25rem;
+    --bn-text-body-xl-link-line-height: 1.5;
+    /* body-l: 18px */
+    --bn-text-body-l-size: 1.125rem;
+    /* body-l-bold: 18px */
+    --bn-text-body-l-bold-size: 1.125rem;
+    /* body-l-link: 18px */
+    --bn-text-body-l-link-size: 1.125rem;
+    /* body-s-bold: 14px */
+    --bn-text-body-s-bold-letter-spacing: 0;
+    /* body-s-link: 14px */
+    --bn-text-body-s-link-weight: var(--bn-font-weight-bold);
+    --bn-text-body-s-link-letter-spacing: 0;
+    /* body-xs: 12px  (same as desktop today; kept separate) */
+    --bn-text-body-xs-size: 0.75rem;
+    /* body-xs-bold: 12px  (same as desktop today; kept separate) */
+    --bn-text-body-xs-bold-size: 0.75rem;
+    /* body-xs-link: 12px  (same as desktop today; kept separate) */
+    --bn-text-body-xs-link-size: 0.75rem;
+    /* blockquote: 18px */
+    --bn-text-blockquote-size: 1.125rem;
+    --bn-text-blockquote-line-height: 1.6;
+    /* label-r: 14px */
+    --bn-text-label-r-size: 0.875rem;
+    --bn-text-label-r-line-height: 1.1429;
+    /* marketing-heading-h1: 36px */
+    --bn-text-marketing-heading-h1-size: 2.25rem;
+    --bn-text-marketing-heading-h1-line-height: 1.3;
+    --bn-text-marketing-heading-h1-letter-spacing: -0.011em;
+    /* marketing-heading-h2: 32px */
+    --bn-text-marketing-heading-h2-size: 2rem;
+    --bn-text-marketing-heading-h2-letter-spacing: 0;
+  }
+}
+
+/* Defence Economy  ·  Figma: Brand collection, Defence Economy mode
+   Exploratory values. Only differences from Business News are listed. */
+[data-brand="defence-economy"] {
+  /* Colour (brand, primary, bright, dark, and accent use Business News
+     values until Defence Economy's are chosen) */
+  --bn-fonts-headings: #0d1f3c;
+  --bn-fonts-links: #0d1f3c;
+  --bn-fonts-body: #40464f;
+  --bn-bg-grey: #eceae6;
+  --bn-bg-canvas: #fcfaf8;
+  --bn-content-money: #956b07;
+  --bn-content-infra: #c2410c;
+  --bn-content-tech: #6f264c;
+  --bn-content-work: #0f766e;
+  --bn-content-policy: #00237f;
+
+  /* Type */
+  --bn-font-heading: "Public Sans", system-ui, sans-serif;
+  --bn-font-primary: "Source Serif 4", Georgia, serif;
+  --bn-font-editorial: "Playfair Display", Georgia, serif;
+
+  /* heading-h1: 36px */
+  --bn-text-heading-h1-size: 2.25rem;
+  --bn-text-heading-h1-line-height: 1.1;
+  --bn-text-heading-h1-weight: var(--bn-font-weight-bold);
+  --bn-text-heading-h1-letter-spacing: -0.04em;
+  /* heading-h2: 32px */
+  --bn-text-heading-h2-font: var(--bn-font-heading);
+  --bn-text-heading-h2-weight: var(--bn-font-weight-bold);
+  --bn-text-heading-h2-letter-spacing: -0.03em;
+  /* heading-h3: 26px */
+  --bn-text-heading-h3-size: 1.625rem;
+  --bn-text-heading-h3-weight: var(--bn-font-weight-semibold);
+  /* heading-h3-article: 22px */
+  --bn-text-heading-h3-article-font: var(--bn-font-heading);
+  --bn-text-heading-h3-article-size: 1.375rem;
+  --bn-text-heading-h3-article-line-height: 1.3;
+  --bn-text-heading-h3-article-weight: var(--bn-font-weight-bold);
+  --bn-text-heading-h3-article-letter-spacing: -0.02em;
+  /* heading-h4: 20px */
+  --bn-text-heading-h4-size: 1.25rem;
+  --bn-text-heading-h4-letter-spacing: -0.02em;
+  /* heading-h5: 20px */
+  --bn-text-heading-h5-size: 1.25rem;
+  --bn-text-heading-h5-line-height: 1.4;
+  --bn-text-heading-h5-weight: var(--bn-font-weight-semibold);
+  --bn-text-heading-h5-letter-spacing: -0.011em;
+  /* heading-span: 12px */
+  --bn-text-heading-span-size: 0.75rem;
+  --bn-text-heading-span-letter-spacing: 0.2em;
+  /* body-xl: 24px */
+  --bn-text-body-xl-size: 1.5rem;
+  /* body-xl-bold: 24px */
+  --bn-text-body-xl-bold-size: 1.5rem;
+  /* body-xl-link: 24px */
+  --bn-text-body-xl-link-size: 1.5rem;
+  /* body-l: 21px */
+  --bn-text-body-l-size: 1.3125rem;
+  /* body-l-bold: 21px */
+  --bn-text-body-l-bold-size: 1.3125rem;
+  /* body-l-link: 21px */
+  --bn-text-body-l-link-size: 1.3125rem;
+  /* body-r: 18px */
+  --bn-text-body-r-size: 1.125rem;
+  /* body-r-bold: 18px */
+  --bn-text-body-r-bold-size: 1.125rem;
+  /* body-r-link: 18px */
+  --bn-text-body-r-link-size: 1.125rem;
+  /* body-s: 16px */
+  --bn-text-body-s-size: 1rem;
+  /* body-s-bold: 16px */
+  --bn-text-body-s-bold-size: 1rem;
+  /* body-s-link: 16px */
+  --bn-text-body-s-link-size: 1rem;
+  /* body-xs: 14px */
+  --bn-text-body-xs-size: 0.875rem;
+  /* body-xs-bold: 14px */
+  --bn-text-body-xs-bold-size: 0.875rem;
+  /* body-xs-link: 14px */
+  --bn-text-body-xs-link-size: 0.875rem;
+  --bn-text-body-xs-link-weight: var(--bn-font-weight-semibold);
+}
+
+@media (max-width: 767px) {
+  [data-brand="defence-economy"] {
+    /* heading-h1: 32px */
+    --bn-text-heading-h1-size: 2rem;
+    --bn-text-heading-h1-line-height: 1.3;
+    --bn-text-heading-h1-letter-spacing: -0.011em;
+    /* heading-h2: 28px */
+    --bn-text-heading-h2-letter-spacing: 0;
+    /* heading-h3-article: 22px */
+    --bn-text-heading-h3-article-line-height: 1.35;
+    --bn-text-heading-h3-article-letter-spacing: 0;
+    /* heading-h4: 20px */
+    --bn-text-heading-h4-letter-spacing: 0;
+    /* heading-h5: 18px */
+    --bn-text-heading-h5-size: 1.125rem;
+    --bn-text-heading-h5-line-height: 1.5;
+    --bn-text-heading-h5-weight: var(--bn-font-weight-medium);
+    --bn-text-heading-h5-letter-spacing: 0;
+    /* heading-span: 14px */
+    --bn-text-heading-span-size: 0.875rem;
+    --bn-text-heading-span-letter-spacing: 0.15em;
+    /* body-xl: 20px */
+    --bn-text-body-xl-size: 1.25rem;
+    /* body-xl-bold: 20px */
+    --bn-text-body-xl-bold-size: 1.25rem;
+    /* body-xl-link: 20px */
+    --bn-text-body-xl-link-size: 1.25rem;
+    /* body-l: 18px */
+    --bn-text-body-l-size: 1.125rem;
+    /* body-l-bold: 18px */
+    --bn-text-body-l-bold-size: 1.125rem;
+    /* body-l-link: 18px */
+    --bn-text-body-l-link-size: 1.125rem;
+    /* body-r: 16px */
+    --bn-text-body-r-size: 1rem;
+    /* body-r-bold: 16px */
+    --bn-text-body-r-bold-size: 1rem;
+    /* body-r-link: 16px */
+    --bn-text-body-r-link-size: 1rem;
+    /* body-s: 14px */
+    --bn-text-body-s-size: 0.875rem;
+    /* body-s-bold: 14px */
+    --bn-text-body-s-bold-size: 0.875rem;
+    /* body-s-link: 14px */
+    --bn-text-body-s-link-size: 0.875rem;
+    --bn-text-body-s-link-weight: var(--bn-font-weight-semibold);
+    /* body-xs: 12px */
+    --bn-text-body-xs-size: 0.75rem;
+    /* body-xs-bold: 12px */
+    --bn-text-body-xs-bold-size: 0.75rem;
+    /* body-xs-link: 12px */
+    --bn-text-body-xs-link-size: 0.75rem;
+    --bn-text-body-xs-link-weight: var(--bn-font-weight-bold);
+  }
+}
+
+/* Text classes: one per style, built from the tokens above.
+   Optional. Use these, or apply the tokens directly in component CSS. */
+.bn-text-heading-h1 {
+  font-family: var(--bn-text-heading-h1-font);
+  font-size: var(--bn-text-heading-h1-size);
+  line-height: var(--bn-text-heading-h1-line-height);
+  font-weight: var(--bn-text-heading-h1-weight);
+  letter-spacing: var(--bn-text-heading-h1-letter-spacing);
+  font-style: var(--bn-text-heading-h1-style);
+  text-transform: var(--bn-text-heading-h1-transform);
+  text-decoration-line: var(--bn-text-heading-h1-decoration);
+}
+.bn-text-heading-h1-display {
+  font-family: var(--bn-text-heading-h1-display-font);
+  font-size: var(--bn-text-heading-h1-display-size);
+  line-height: var(--bn-text-heading-h1-display-line-height);
+  font-weight: var(--bn-text-heading-h1-display-weight);
+  letter-spacing: var(--bn-text-heading-h1-display-letter-spacing);
+  font-style: var(--bn-text-heading-h1-display-style);
+  text-transform: var(--bn-text-heading-h1-display-transform);
+  text-decoration-line: var(--bn-text-heading-h1-display-decoration);
+}
+.bn-text-heading-h2 {
+  font-family: var(--bn-text-heading-h2-font);
+  font-size: var(--bn-text-heading-h2-size);
+  line-height: var(--bn-text-heading-h2-line-height);
+  font-weight: var(--bn-text-heading-h2-weight);
+  letter-spacing: var(--bn-text-heading-h2-letter-spacing);
+  font-style: var(--bn-text-heading-h2-style);
+  text-transform: var(--bn-text-heading-h2-transform);
+  text-decoration-line: var(--bn-text-heading-h2-decoration);
+}
+.bn-text-heading-h3 {
+  font-family: var(--bn-text-heading-h3-font);
+  font-size: var(--bn-text-heading-h3-size);
+  line-height: var(--bn-text-heading-h3-line-height);
+  font-weight: var(--bn-text-heading-h3-weight);
+  letter-spacing: var(--bn-text-heading-h3-letter-spacing);
+  font-style: var(--bn-text-heading-h3-style);
+  text-transform: var(--bn-text-heading-h3-transform);
+  text-decoration-line: var(--bn-text-heading-h3-decoration);
+}
+.bn-text-heading-h3-article {
+  font-family: var(--bn-text-heading-h3-article-font);
+  font-size: var(--bn-text-heading-h3-article-size);
+  line-height: var(--bn-text-heading-h3-article-line-height);
+  font-weight: var(--bn-text-heading-h3-article-weight);
+  letter-spacing: var(--bn-text-heading-h3-article-letter-spacing);
+  font-style: var(--bn-text-heading-h3-article-style);
+  text-transform: var(--bn-text-heading-h3-article-transform);
+  text-decoration-line: var(--bn-text-heading-h3-article-decoration);
+}
+.bn-text-heading-h3-display {
+  font-family: var(--bn-text-heading-h3-display-font);
+  font-size: var(--bn-text-heading-h3-display-size);
+  line-height: var(--bn-text-heading-h3-display-line-height);
+  font-weight: var(--bn-text-heading-h3-display-weight);
+  letter-spacing: var(--bn-text-heading-h3-display-letter-spacing);
+  font-style: var(--bn-text-heading-h3-display-style);
+  text-transform: var(--bn-text-heading-h3-display-transform);
+  text-decoration-line: var(--bn-text-heading-h3-display-decoration);
+}
+.bn-text-heading-h4 {
+  font-family: var(--bn-text-heading-h4-font);
+  font-size: var(--bn-text-heading-h4-size);
+  line-height: var(--bn-text-heading-h4-line-height);
+  font-weight: var(--bn-text-heading-h4-weight);
+  letter-spacing: var(--bn-text-heading-h4-letter-spacing);
+  font-style: var(--bn-text-heading-h4-style);
+  text-transform: var(--bn-text-heading-h4-transform);
+  text-decoration-line: var(--bn-text-heading-h4-decoration);
+}
+.bn-text-heading-h5 {
+  font-family: var(--bn-text-heading-h5-font);
+  font-size: var(--bn-text-heading-h5-size);
+  line-height: var(--bn-text-heading-h5-line-height);
+  font-weight: var(--bn-text-heading-h5-weight);
+  letter-spacing: var(--bn-text-heading-h5-letter-spacing);
+  font-style: var(--bn-text-heading-h5-style);
+  text-transform: var(--bn-text-heading-h5-transform);
+  text-decoration-line: var(--bn-text-heading-h5-decoration);
+}
+.bn-text-heading-span {
+  font-family: var(--bn-text-heading-span-font);
+  font-size: var(--bn-text-heading-span-size);
+  line-height: var(--bn-text-heading-span-line-height);
+  font-weight: var(--bn-text-heading-span-weight);
+  letter-spacing: var(--bn-text-heading-span-letter-spacing);
+  font-style: var(--bn-text-heading-span-style);
+  text-transform: var(--bn-text-heading-span-transform);
+  text-decoration-line: var(--bn-text-heading-span-decoration);
+}
+.bn-text-body-xl {
+  font-family: var(--bn-text-body-xl-font);
+  font-size: var(--bn-text-body-xl-size);
+  line-height: var(--bn-text-body-xl-line-height);
+  font-weight: var(--bn-text-body-xl-weight);
+  letter-spacing: var(--bn-text-body-xl-letter-spacing);
+  font-style: var(--bn-text-body-xl-style);
+  text-transform: var(--bn-text-body-xl-transform);
+  text-decoration-line: var(--bn-text-body-xl-decoration);
+}
+.bn-text-body-xl-bold {
+  font-family: var(--bn-text-body-xl-bold-font);
+  font-size: var(--bn-text-body-xl-bold-size);
+  line-height: var(--bn-text-body-xl-bold-line-height);
+  font-weight: var(--bn-text-body-xl-bold-weight);
+  letter-spacing: var(--bn-text-body-xl-bold-letter-spacing);
+  font-style: var(--bn-text-body-xl-bold-style);
+  text-transform: var(--bn-text-body-xl-bold-transform);
+  text-decoration-line: var(--bn-text-body-xl-bold-decoration);
+}
+.bn-text-body-xl-link {
+  font-family: var(--bn-text-body-xl-link-font);
+  font-size: var(--bn-text-body-xl-link-size);
+  line-height: var(--bn-text-body-xl-link-line-height);
+  font-weight: var(--bn-text-body-xl-link-weight);
+  letter-spacing: var(--bn-text-body-xl-link-letter-spacing);
+  font-style: var(--bn-text-body-xl-link-style);
+  text-transform: var(--bn-text-body-xl-link-transform);
+  text-decoration-line: var(--bn-text-body-xl-link-decoration);
+}
+.bn-text-body-l {
+  font-family: var(--bn-text-body-l-font);
+  font-size: var(--bn-text-body-l-size);
+  line-height: var(--bn-text-body-l-line-height);
+  font-weight: var(--bn-text-body-l-weight);
+  letter-spacing: var(--bn-text-body-l-letter-spacing);
+  font-style: var(--bn-text-body-l-style);
+  text-transform: var(--bn-text-body-l-transform);
+  text-decoration-line: var(--bn-text-body-l-decoration);
+}
+.bn-text-body-l-bold {
+  font-family: var(--bn-text-body-l-bold-font);
+  font-size: var(--bn-text-body-l-bold-size);
+  line-height: var(--bn-text-body-l-bold-line-height);
+  font-weight: var(--bn-text-body-l-bold-weight);
+  letter-spacing: var(--bn-text-body-l-bold-letter-spacing);
+  font-style: var(--bn-text-body-l-bold-style);
+  text-transform: var(--bn-text-body-l-bold-transform);
+  text-decoration-line: var(--bn-text-body-l-bold-decoration);
+}
+.bn-text-body-l-link {
+  font-family: var(--bn-text-body-l-link-font);
+  font-size: var(--bn-text-body-l-link-size);
+  line-height: var(--bn-text-body-l-link-line-height);
+  font-weight: var(--bn-text-body-l-link-weight);
+  letter-spacing: var(--bn-text-body-l-link-letter-spacing);
+  font-style: var(--bn-text-body-l-link-style);
+  text-transform: var(--bn-text-body-l-link-transform);
+  text-decoration-line: var(--bn-text-body-l-link-decoration);
+}
+.bn-text-body-r {
+  font-family: var(--bn-text-body-r-font);
+  font-size: var(--bn-text-body-r-size);
+  line-height: var(--bn-text-body-r-line-height);
+  font-weight: var(--bn-text-body-r-weight);
+  letter-spacing: var(--bn-text-body-r-letter-spacing);
+  font-style: var(--bn-text-body-r-style);
+  text-transform: var(--bn-text-body-r-transform);
+  text-decoration-line: var(--bn-text-body-r-decoration);
+}
+.bn-text-body-r-bold {
+  font-family: var(--bn-text-body-r-bold-font);
+  font-size: var(--bn-text-body-r-bold-size);
+  line-height: var(--bn-text-body-r-bold-line-height);
+  font-weight: var(--bn-text-body-r-bold-weight);
+  letter-spacing: var(--bn-text-body-r-bold-letter-spacing);
+  font-style: var(--bn-text-body-r-bold-style);
+  text-transform: var(--bn-text-body-r-bold-transform);
+  text-decoration-line: var(--bn-text-body-r-bold-decoration);
+}
+.bn-text-body-r-medium {
+  font-family: var(--bn-text-body-r-medium-font);
+  font-size: var(--bn-text-body-r-medium-size);
+  line-height: var(--bn-text-body-r-medium-line-height);
+  font-weight: var(--bn-text-body-r-medium-weight);
+  letter-spacing: var(--bn-text-body-r-medium-letter-spacing);
+  font-style: var(--bn-text-body-r-medium-style);
+  text-transform: var(--bn-text-body-r-medium-transform);
+  text-decoration-line: var(--bn-text-body-r-medium-decoration);
+}
+.bn-text-body-r-italic {
+  font-family: var(--bn-text-body-r-italic-font);
+  font-size: var(--bn-text-body-r-italic-size);
+  line-height: var(--bn-text-body-r-italic-line-height);
+  font-weight: var(--bn-text-body-r-italic-weight);
+  letter-spacing: var(--bn-text-body-r-italic-letter-spacing);
+  font-style: var(--bn-text-body-r-italic-style);
+  text-transform: var(--bn-text-body-r-italic-transform);
+  text-decoration-line: var(--bn-text-body-r-italic-decoration);
+}
+.bn-text-body-r-link {
+  font-family: var(--bn-text-body-r-link-font);
+  font-size: var(--bn-text-body-r-link-size);
+  line-height: var(--bn-text-body-r-link-line-height);
+  font-weight: var(--bn-text-body-r-link-weight);
+  letter-spacing: var(--bn-text-body-r-link-letter-spacing);
+  font-style: var(--bn-text-body-r-link-style);
+  text-transform: var(--bn-text-body-r-link-transform);
+  text-decoration-line: var(--bn-text-body-r-link-decoration);
+}
+.bn-text-body-s {
+  font-family: var(--bn-text-body-s-font);
+  font-size: var(--bn-text-body-s-size);
+  line-height: var(--bn-text-body-s-line-height);
+  font-weight: var(--bn-text-body-s-weight);
+  letter-spacing: var(--bn-text-body-s-letter-spacing);
+  font-style: var(--bn-text-body-s-style);
+  text-transform: var(--bn-text-body-s-transform);
+  text-decoration-line: var(--bn-text-body-s-decoration);
+}
+.bn-text-body-s-bold {
+  font-family: var(--bn-text-body-s-bold-font);
+  font-size: var(--bn-text-body-s-bold-size);
+  line-height: var(--bn-text-body-s-bold-line-height);
+  font-weight: var(--bn-text-body-s-bold-weight);
+  letter-spacing: var(--bn-text-body-s-bold-letter-spacing);
+  font-style: var(--bn-text-body-s-bold-style);
+  text-transform: var(--bn-text-body-s-bold-transform);
+  text-decoration-line: var(--bn-text-body-s-bold-decoration);
+}
+.bn-text-body-s-link {
+  font-family: var(--bn-text-body-s-link-font);
+  font-size: var(--bn-text-body-s-link-size);
+  line-height: var(--bn-text-body-s-link-line-height);
+  font-weight: var(--bn-text-body-s-link-weight);
+  letter-spacing: var(--bn-text-body-s-link-letter-spacing);
+  font-style: var(--bn-text-body-s-link-style);
+  text-transform: var(--bn-text-body-s-link-transform);
+  text-decoration-line: var(--bn-text-body-s-link-decoration);
+}
+.bn-text-body-xs {
+  font-family: var(--bn-text-body-xs-font);
+  font-size: var(--bn-text-body-xs-size);
+  line-height: var(--bn-text-body-xs-line-height);
+  font-weight: var(--bn-text-body-xs-weight);
+  letter-spacing: var(--bn-text-body-xs-letter-spacing);
+  font-style: var(--bn-text-body-xs-style);
+  text-transform: var(--bn-text-body-xs-transform);
+  text-decoration-line: var(--bn-text-body-xs-decoration);
+}
+.bn-text-body-xs-bold {
+  font-family: var(--bn-text-body-xs-bold-font);
+  font-size: var(--bn-text-body-xs-bold-size);
+  line-height: var(--bn-text-body-xs-bold-line-height);
+  font-weight: var(--bn-text-body-xs-bold-weight);
+  letter-spacing: var(--bn-text-body-xs-bold-letter-spacing);
+  font-style: var(--bn-text-body-xs-bold-style);
+  text-transform: var(--bn-text-body-xs-bold-transform);
+  text-decoration-line: var(--bn-text-body-xs-bold-decoration);
+}
+.bn-text-body-xs-link {
+  font-family: var(--bn-text-body-xs-link-font);
+  font-size: var(--bn-text-body-xs-link-size);
+  line-height: var(--bn-text-body-xs-link-line-height);
+  font-weight: var(--bn-text-body-xs-link-weight);
+  letter-spacing: var(--bn-text-body-xs-link-letter-spacing);
+  font-style: var(--bn-text-body-xs-link-style);
+  text-transform: var(--bn-text-body-xs-link-transform);
+  text-decoration-line: var(--bn-text-body-xs-link-decoration);
+}
+.bn-text-blockquote {
+  font-family: var(--bn-text-blockquote-font);
+  font-size: var(--bn-text-blockquote-size);
+  line-height: var(--bn-text-blockquote-line-height);
+  font-weight: var(--bn-text-blockquote-weight);
+  letter-spacing: var(--bn-text-blockquote-letter-spacing);
+  font-style: var(--bn-text-blockquote-style);
+  text-transform: var(--bn-text-blockquote-transform);
+  text-decoration-line: var(--bn-text-blockquote-decoration);
+}
+.bn-text-label-r {
+  font-family: var(--bn-text-label-r-font);
+  font-size: var(--bn-text-label-r-size);
+  line-height: var(--bn-text-label-r-line-height);
+  font-weight: var(--bn-text-label-r-weight);
+  letter-spacing: var(--bn-text-label-r-letter-spacing);
+  font-style: var(--bn-text-label-r-style);
+  text-transform: var(--bn-text-label-r-transform);
+  text-decoration-line: var(--bn-text-label-r-decoration);
+}
+.bn-text-label-s {
+  font-family: var(--bn-text-label-s-font);
+  font-size: var(--bn-text-label-s-size);
+  line-height: var(--bn-text-label-s-line-height);
+  font-weight: var(--bn-text-label-s-weight);
+  letter-spacing: var(--bn-text-label-s-letter-spacing);
+  font-style: var(--bn-text-label-s-style);
+  text-transform: var(--bn-text-label-s-transform);
+  text-decoration-line: var(--bn-text-label-s-decoration);
+}
+.bn-text-badge {
+  font-family: var(--bn-text-badge-font);
+  font-size: var(--bn-text-badge-size);
+  line-height: var(--bn-text-badge-line-height);
+  font-weight: var(--bn-text-badge-weight);
+  letter-spacing: var(--bn-text-badge-letter-spacing);
+  font-style: var(--bn-text-badge-style);
+  text-transform: var(--bn-text-badge-transform);
+  text-decoration-line: var(--bn-text-badge-decoration);
+}
+.bn-text-marketing-heading-h1 {
+  font-family: var(--bn-text-marketing-heading-h1-font);
+  font-size: var(--bn-text-marketing-heading-h1-size);
+  line-height: var(--bn-text-marketing-heading-h1-line-height);
+  font-weight: var(--bn-text-marketing-heading-h1-weight);
+  letter-spacing: var(--bn-text-marketing-heading-h1-letter-spacing);
+  font-style: var(--bn-text-marketing-heading-h1-style);
+  text-transform: var(--bn-text-marketing-heading-h1-transform);
+  text-decoration-line: var(--bn-text-marketing-heading-h1-decoration);
+}
+.bn-text-marketing-heading-h2 {
+  font-family: var(--bn-text-marketing-heading-h2-font);
+  font-size: var(--bn-text-marketing-heading-h2-size);
+  line-height: var(--bn-text-marketing-heading-h2-line-height);
+  font-weight: var(--bn-text-marketing-heading-h2-weight);
+  letter-spacing: var(--bn-text-marketing-heading-h2-letter-spacing);
+  font-style: var(--bn-text-marketing-heading-h2-style);
+  text-transform: var(--bn-text-marketing-heading-h2-transform);
+  text-decoration-line: var(--bn-text-marketing-heading-h2-decoration);
+}

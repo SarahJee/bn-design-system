@@ -16,6 +16,6 @@ export const Default = {};
 
 export const AllIcons = {
   render: () => `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px;color:var(--bn-fonts-headings)">
-    ${names.map((n) => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;font:12px/16px var(--font-barlow)">${Icon({ name: n, size: 24 })}<span>${n}</span></div>`).join('')}
+    ${names.map((n) => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;font:12px/16px var(--bn-font-primary)">${Icon({ name: n, size: 24 })}<span>${n}</span></div>`).join('')}
   </div>`,
 };
