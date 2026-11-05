@@ -26,6 +26,9 @@
   --bn-space-xl: 32px;
   --bn-radius-sm: 4px;
   --bn-radius-full: 999px;
+  --bn-ratio-16-9: 16 / 9;
+  --bn-ratio-3-2: 3 / 2;
+  --bn-ratio-1-1: 1 / 1;
   --font-barlow: Barlow, "Helvetica Neue", Arial, sans-serif;
   --font-playfair: "Playfair Display", Georgia, serif;
 }

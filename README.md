@@ -65,6 +65,12 @@ Use the `bn-` tokens. They match the Figma variables one to one (`bn/brand/prima
 
 - **Radius:** `--bn-radius-sm` (4px) for buttons, inputs and controls, and `--bn-radius-full` (999px) for pills and circles.
 - **Spacing:** a 4px scale, `--bn-space-xs` (4) to `--bn-space-xl` (32). Gaps that were 10px in Figma now use `--bn-space-sm` (8px).
+- **Aspect ratios:** `--bn-ratio-16-9`, `--bn-ratio-3-2` and `--bn-ratio-1-1` for card images. Named by shape, not by card, and the same for every brand. Hero SB is 16:9; Hero Home, Highlight, Featured, Event and Default are 3:2; Small and Podcast are 1:1. Use them on the image wrapper with `object-fit: cover` so any upload crops cleanly:
+
+  ```css
+  .news-card__image { aspect-ratio: var(--bn-ratio-3-2); object-fit: cover; width: 100%; }
+  ```
+
 - **Type:** desktop (`DT-`) and mobile (`M-`) classes. New on 8 October: `Body-R-Medium` (navigation and form inputs), `Body-R-Italic` (placeholders), `Label-S` and `Label-R` (uppercase labels for buttons and tags) and `DT-Badge`.
 
 ```css
